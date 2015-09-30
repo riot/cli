@@ -35,6 +35,7 @@
   "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (http://gianlucaguarini.com/)",
   "dependencies": {
     "chalk": "^1.1.1",
+    "chokidar": "^1.1.0",
     "optionator": "^0.6.0",
     "shelljs": "^0.5.3"
   }
