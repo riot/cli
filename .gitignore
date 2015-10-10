@@ -54,7 +54,8 @@ npm-debug.log
 bower_components
 coverage
 # these files are generated anyway
-/test/compiler/js/*
+test/fixtures/*
+test/tags/*.js
 
 !.gitmodules
 !.travis.yml

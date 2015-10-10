@@ -1,3 +1,3 @@
 <component>
-  <p>{ opts.msg  }</p>
+  <p>{ opts.msg }</p>
 </component>
