@@ -1,0 +1,3 @@
+test/tags/component-2.tag -> test/tags/component-2.js
+test/tags/component.tag -> test/tags/component.js
+test/tags/wrong-component.tag -> test/tags/wrong-component.js

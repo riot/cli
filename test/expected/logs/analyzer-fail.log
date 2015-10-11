@@ -1,0 +1,6 @@
+ Riot Tag Syntax Error 
+L3| </wrong-componen>
+^^^ Closing tag unmatch
+EOF| 
+^^^ Last tag definition is not closed
+Total error: 2
