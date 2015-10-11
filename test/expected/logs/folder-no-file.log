@@ -1,3 +1,8 @@
+test/tags/analyzer/invalid.tag -> test/tags/analyzer/invalid.js
+test/tags/analyzer/tag-not-closed.tag -> test/tags/analyzer/tag-not-closed.js
+test/tags/analyzer/tag-unmatch.tag -> test/tags/analyzer/tag-unmatch.js
+test/tags/analyzer/valid.tag -> test/tags/analyzer/valid.js
+test/tags/analyzer/without-indent.tag -> test/tags/analyzer/without-indent.js
 test/tags/component-2.tag -> test/tags/component-2.js
 test/tags/component.tag -> test/tags/component.js
 test/tags/wrong-component.tag -> test/tags/wrong-component.js
