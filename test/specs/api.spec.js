@@ -3,7 +3,10 @@ require('shelljs/global')
 const TAGS_FOLDER = 'test/tags/',
   cli = require('../../lib')
 
-describe('API methods', () => {
+describe('API methods', function() {
+
+  this.timeout(10000)
+
   // remove the useless stuff
   after(() => rm(`${TAGS_FOLDER}component-copy.*`))
 
