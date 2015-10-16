@@ -42,12 +42,14 @@ describe('API methods', function() {
       .on('ready', () => {
         cp(`${TAGS_FOLDER}component.tag`, `${TAGS_FOLDER}component-copy.tag`)
         watcher.add(`${TAGS_FOLDER}component-copy.tag`)
+        // hoping that this file gets compiled after 3 seconds
+        setTimeout(() => {
+          expect(test('-e', `${TAGS_FOLDER}component-copy.js`)).to.be(true)
+          watcher.close()
+          done()
+        }, 3000)
       })
-      .on('all', () => {
-        expect(test('-e', `${TAGS_FOLDER}component-copy.js`)).to.be(true)
-        watcher.close()
-        done()
-      })
+
   })
 
 })
