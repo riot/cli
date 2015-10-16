@@ -12,7 +12,7 @@ describe('API methods', () => {
   })
 
   it('version', () => {
-    expect(cli.version()).to.be(require('../../package.json').version)
+    expect(cli.version()).to.be(require('riot-compiler/package.json').version)
   })
 
   it('check', () => {

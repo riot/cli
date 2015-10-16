@@ -11,9 +11,13 @@ Command line tool to precompile riot tags
 
 ## Installation
 
-### Npm
+Normally this tool is available directly installing riot [riot](https://github.com/riot/riot) via npm:
 
-`$ npm install riot-cli --save`
+`$ npm install riot -g`
+
+But it's also available as standalone package:
+
+`$ npm install riot-cli -g`
 
 [travis-image]:https://img.shields.io/travis/riot/cli.svg?style=flat-square
 [travis-url]:https://travis-ci.org/riot/cli
