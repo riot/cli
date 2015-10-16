@@ -4,6 +4,8 @@ const TAGS_FOLDER = 'test/tags/',
   cli = require('../../lib')
 
 describe('API methods', () => {
+  // remove the useless stuff
+  after(() => rm(`${TAGS_FOLDER}component-copy.*`))
 
   it('help', () => {
     expect(cli.help()).to.be.a('string')
@@ -28,6 +30,21 @@ describe('API methods', () => {
     expect(cli.make({from: 'test/tags', to: 'test/expected/make.js'}).error).to.be(false)
     // check if the file exists
     expect(test('-e', 'test/expected/make.js')).to.be(true)
+  })
+
+  it('watch', (done) => {
+    var watcher = cli.watch({from: TAGS_FOLDER})
+
+    watcher
+      .on('ready', () => {
+        cp(`${TAGS_FOLDER}component.tag`, `${TAGS_FOLDER}component-copy.tag`)
+        watcher.add(`${TAGS_FOLDER}component-copy.tag`)
+      })
+      .on('all', () => {
+        expect(test('-e', `${TAGS_FOLDER}component-copy.js`)).to.be(true)
+        watcher.close()
+        done()
+      })
   })
 
 })
