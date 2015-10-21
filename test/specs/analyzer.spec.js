@@ -19,15 +19,14 @@ describe('Analyzer', () => {
     expect(results[5].error).to.equal('Last tag definition is not closed')
   })
   it('returns an error if there are no indentations within tag', () => {
-    var results = analyzer(cat(`${ANALYZER_TAGS_FOLDER}without-indent.tag`))
-    expect(results[1].error).to.equal('Indentation needed within tag definition')
+    var results = analyzer(cat(`${ANALYZER_TAGS_FOLDER}one-line.tag`))
     expect(results[2].error).to.equal('Indentation needed within tag definition')
   })
-  it('returns an error if there are invalid tag flagments', () => {
+  it('returns an error if there are invalid tag fragments', () => {
     var results = analyzer(cat(`${ANALYZER_TAGS_FOLDER}invalid.tag`))
     expect(results[5].error).to.equal('Indentation needed within tag definition')
-    expect(results[10].error).to.equal('Invalid tag flagment')
-    expect(results[16].error).to.equal('Invalid tag flagment')
+    expect(results[10].error).to.equal('Invalid tag fragment')
+    expect(results[16].error).to.equal('Invalid tag fragment')
   })
 
 

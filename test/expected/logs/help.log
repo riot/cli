@@ -1,5 +1,5 @@
 
-Builds .tag files to .js 
+Builds .tag files to .js
 
 Options:
 
@@ -40,5 +40,5 @@ Examples for options:
   riot foo bar --compact
   riot test.tag --type coffeescript --expr
 
-Version 2.0.0-beta
+Version 2.3.0-beta.4
 
