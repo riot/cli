@@ -29,5 +29,4 @@ describe('Analyzer', () => {
     expect(results[16].error).to.equal('Invalid tag fragment')
   })
 
-
 })

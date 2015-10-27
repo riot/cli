@@ -19,15 +19,22 @@ describe('API methods', function() {
   })
 
   it('check', () => {
-    expect(cli.check({from: `${TAGS_FOLDER}wrong-component.tag`})).to.be.an('array')
-    expect(cli.check({from: `${TAGS_FOLDER}wrong-component.tag`})).to.have.length(2)
+    var check = cli.check({from: `${TAGS_FOLDER}wrong-component.tag`})[0]
+    expect(check).to.be.an('object')
+    expect(check.errors).to.have.length(2)
     expect(cli.check({from: `${TAGS_FOLDER}component.tag`})).to.have.length(0)
+    expect(cli.check({from: `${TAGS_FOLDER}`})[0].file).to.be.a('string')
   })
 
   it('make', () => {
     expect(cli.make({from: 'some/random/path.tag'}).error).to.be.a('string')
     expect(cli.make({from: `${TAGS_FOLDER}component.tag`}).error).to.be(false)
-    expect(cli.make({from: `${TAGS_FOLDER}component.tag`, to: 'test/expected/make-component.js'}).error).to.be(false)
+    expect(cli.make({
+      from: `${TAGS_FOLDER}component.tag`,
+      to: 'test/expected/make-component.js',
+      compiler: { modular: true }
+    }).error).to.be(false)
+
     // check if the file exists
     expect(test('-e', 'test/expected/make-component.js')).to.be(true)
     expect(cli.make({from: 'test/tags', to: 'test/expected/make.js'}).error).to.be(false)
