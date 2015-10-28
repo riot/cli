@@ -20,10 +20,7 @@ riot.tag2('p', '', '', '', function(opts) {
 
 console.log('end of file')
 
-
-
-riot.tag2('one-line', '', '', '', function(opts) {
-Hello { opts.message }!
+riot.tag2('line', '<div >', '', '', function(opts) {
 });
 <tag-not-closed>
 riot.tag2('p', '', '', '', function(opts) {

@@ -35,6 +35,11 @@ describe('API methods', function() {
       compiler: { modular: true }
     }).error).to.be(false)
 
+    expect(cli.make).withArgs({
+      from: `${TAGS_FOLDER}component.tag`,
+      compiler: { modular: true, template: 'nope' }
+    }).to.throwError()
+
     // check if the file exists
     expect(test('-e', 'test/expected/make-component.js')).to.be(true)
     expect(cli.make({from: 'test/tags', to: 'test/expected/make.js'}).error).to.be(false)
@@ -42,7 +47,7 @@ describe('API methods', function() {
     expect(test('-e', 'test/expected/make.js')).to.be(true)
   })
 
-  it('watch', (done) => {
+  it('watch folder', (done) => {
     var watcher = cli.watch({from: TAGS_FOLDER})
 
     watcher
@@ -54,9 +59,24 @@ describe('API methods', function() {
           expect(test('-e', `${TAGS_FOLDER}component-copy.js`)).to.be(true)
           watcher.close()
           done()
-        }, 3000)
+        }, 2000)
       })
+  })
 
+  it('watch file', (done) => {
+    var watcher = cli.watch({from: `${TAGS_FOLDER}component.tag`})
+
+    watcher
+      .on('ready', () => {
+        mv(`${TAGS_FOLDER}component.tag`, `${TAGS_FOLDER}component-copy.tag`)
+        // hoping that this file gets compiled after 3 seconds
+        setTimeout(() => {
+          expect(test('-e', `${TAGS_FOLDER}component-copy.js`)).to.be(true)
+          watcher.close()
+          mv(`${TAGS_FOLDER}component-copy.tag`, `${TAGS_FOLDER}component.tag`)
+          done()
+        }, 2000)
+      })
   })
 
 })

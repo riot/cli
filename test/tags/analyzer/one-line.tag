@@ -1,3 +1,1 @@
-
-
-<one-line>Hello { opts.message }!</one-line>
+<line> <div //></line>

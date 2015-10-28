@@ -1,15 +1,15 @@
 var riot = require('riot')
 
-<valid-tag>  
+<valid-tag>
   <h1>{ title }</h1>
   <p>{ message }</p>
 
   this.title = 'Hello world!'
   this.message = 'I am hungry...'
-</valid-tag> 
+</valid-tag>
 
 <tag-with-style>
-  <p>Hi!</p>  
+  <p>Hi!</p>
   <style scoped>
     p { color: red }
   </style>

@@ -18,9 +18,9 @@ describe('Analyzer', () => {
     expect(results[3].error).to.equal('Closing tag unmatch')
     expect(results[5].error).to.equal('Last tag definition is not closed')
   })
-  it('returns an error if there are no indentations within tag', () => {
+  it('returns an error within a line tag', () => {
     var results = analyzer(cat(`${ANALYZER_TAGS_FOLDER}one-line.tag`))
-    expect(results[2].error).to.equal('Indentation needed within tag definition')
+    expect(results).to.have.length(2)
   })
   it('returns an error if there are invalid tag fragments', () => {
     var results = analyzer(cat(`${ANALYZER_TAGS_FOLDER}invalid.tag`))

@@ -54,7 +54,7 @@ npm-debug.log
 bower_components
 coverage
 # these files are generated anyway
-test/fixtures/*
+test/generated/*
 test/tags/*.js
 test/tags/analyzer/*.js
 

@@ -3,7 +3,7 @@ ISTANBUL = ./node_modules/.bin/istanbul
 ESLINT = ./node_modules/eslint/bin/eslint.js
 MOCHA = ./node_modules/.bin/_mocha
 COVERALLS = ./node_modules/coveralls/bin/coveralls.js
-CLI_OUTPUT_FOLDER = test/fixtures/logs
+CLI_OUTPUT_FOLDER = test/generated/logs
 CLI_PATH = ./lib/index.js
 
 test: eslint test-cli test-mocha
