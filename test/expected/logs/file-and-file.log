@@ -1,1 +1,1 @@
-test/tags/component.tag -> test/expected/component.js
+test/tags/component.tag -> test/generated/component.js

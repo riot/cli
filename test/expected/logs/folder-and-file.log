@@ -1,8 +1,8 @@
-test/tags/analyzer/invalid.tag -> test/expected/cmp.js
-test/tags/analyzer/one-line.tag -> test/expected/cmp.js
-test/tags/analyzer/tag-not-closed.tag -> test/expected/cmp.js
-test/tags/analyzer/tag-unmatch.tag -> test/expected/cmp.js
-test/tags/analyzer/valid.tag -> test/expected/cmp.js
-test/tags/component-2.tag -> test/expected/cmp.js
-test/tags/component.tag -> test/expected/cmp.js
-test/tags/wrong-component.tag -> test/expected/cmp.js
+test/tags/analyzer/invalid.tag -> test/generated/cmp.js
+test/tags/analyzer/one-line.tag -> test/generated/cmp.js
+test/tags/analyzer/tag-not-closed.tag -> test/generated/cmp.js
+test/tags/analyzer/tag-unmatch.tag -> test/generated/cmp.js
+test/tags/analyzer/valid.tag -> test/generated/cmp.js
+test/tags/component-2.tag -> test/generated/cmp.js
+test/tags/component.tag -> test/generated/cmp.js
+test/tags/wrong-component.tag -> test/generated/cmp.js

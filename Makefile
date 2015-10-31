@@ -3,7 +3,8 @@ ISTANBUL = ./node_modules/.bin/istanbul
 ESLINT = ./node_modules/eslint/bin/eslint.js
 MOCHA = ./node_modules/.bin/_mocha
 COVERALLS = ./node_modules/coveralls/bin/coveralls.js
-CLI_OUTPUT_FOLDER = test/generated/logs
+GENERATED_FOLDER = test/generated
+CLI_OUTPUT_FOLDER = $(GENERATED_FOLDER)/logs
 CLI_PATH = ./lib/index.js
 
 test: eslint test-cli test-mocha
@@ -22,9 +23,9 @@ test-cli:
 	$(CLI_PATH) test/tags/component.tag --check > $(CLI_OUTPUT_FOLDER)/analyzer-ok.log
 	$(CLI_PATH) test/tags > $(CLI_OUTPUT_FOLDER)/folder-no-file.log
 	$(CLI_PATH) test/tags --ext html > $(CLI_OUTPUT_FOLDER)/folder-ext.log
-	$(CLI_PATH) test/tags test/expected/cmp.js > $(CLI_OUTPUT_FOLDER)/folder-and-file.log
-	$(CLI_PATH) test/tags/component.tag test/expected/component.js > $(CLI_OUTPUT_FOLDER)/file-and-file.log
-	$(CLI_PATH) test/tags test/expected/component-jade.js --ext jade --template jade --type coffee > $(CLI_OUTPUT_FOLDER)/parsers.log
+	$(CLI_PATH) test/tags $(GENERATED_FOLDER)/cmp.js > $(CLI_OUTPUT_FOLDER)/folder-and-file.log
+	$(CLI_PATH) test/tags/component.tag $(GENERATED_FOLDER)/component.js > $(CLI_OUTPUT_FOLDER)/file-and-file.log
+	$(CLI_PATH) test/tags $(GENERATED_FOLDER)/component-jade.js --ext jade --template jade --type coffee > $(CLI_OUTPUT_FOLDER)/parsers.log
 
 test-mocha:
 	@ $(ISTANBUL) cover $(MOCHA) -- -R spec test/runner.js

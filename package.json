@@ -40,7 +40,7 @@
     "chalk": "^1.1.1",
     "chokidar": "^1.2.0",
     "optionator": "^0.6.0",
-    "riot-compiler": "^2.3.0-beta.4",
+    "riot-compiler": "^2.3.*",
     "shelljs": "^0.5.3"
   }
 }
