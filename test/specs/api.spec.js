@@ -51,24 +51,26 @@ describe('API methods', function() {
     watcher.on('ready', () => {
       cp(`${TAGS_FOLDER}/component.tag`, `${TAGS_FOLDER}/component-copy.tag`)
       watcher.add(`${TAGS_FOLDER}/component-copy.tag`)
-    })
-    watcher.on('change', () => {
+      // hopefully this tag gets compiled after 3 secons
       setTimeout(() => {
         expect(test('-e', `${TAGS_FOLDER}/component-copy.js`)).to.be(true)
         rm(`${TAGS_FOLDER}/component-copy.*`)
         watcher.close()
         done()
-      }, 1000)
-
+      }, 3000)
     })
   })
 
   it('watch file', (done) => {
-    var watcher = cli.watch({from: `${TAGS_FOLDER}/component.tag`, to: `${GENERATED_FOLDER}/watch-component.js`})
+    var watcher = cli.watch({
+      from: `${TAGS_FOLDER}/component.tag`,
+      to: `${GENERATED_FOLDER}/watch-component.js`
+    })
 
     watcher.on('ready', () => {
       cat(`${TAGS_FOLDER}/component.tag`).to(`${TAGS_FOLDER}/component.tag`)
     })
+
     watcher.on('change', () => {
       setTimeout(() => {
         expect(test('-e', `${GENERATED_FOLDER}/watch-component.js`)).to.be(true)
