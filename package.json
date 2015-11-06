@@ -1,6 +1,6 @@
 {
   "name": "riot-cli",
-  "version": "2.3.0",
+  "version": "2.3.1-beta",
   "description": "Riot command line utility",
   "main": "lib/index.js",
   "engines": {

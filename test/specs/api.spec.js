@@ -33,6 +33,12 @@ describe('API methods', function() {
       compiler: { modular: true }
     }).error).to.be(false)
 
+    expect(cli.make({
+      from: `${TAGS_FOLDER}`,
+      to: `${GENERATED_FOLDER}/make-components.js`,
+      compiler: { modular: true }
+    }).error).to.be(false)
+
     expect(cli.make).withArgs({
       from: `${TAGS_FOLDER}/component.tag`,
       compiler: { modular: true, template: 'nope' }
@@ -40,6 +46,8 @@ describe('API methods', function() {
 
     // check if the file exists
     expect(test('-e', `${GENERATED_FOLDER}/make-component.js`)).to.be(true)
+    expect(cat(`${GENERATED_FOLDER}/make-component.js`)).to.match(/require/)
+    expect(cat(`${GENERATED_FOLDER}/make-components.js`)).to.match(/require/)
     expect(cli.make({from: 'test/tags', to: `${GENERATED_FOLDER}/make.js`}).error).to.be(false)
     // check if the file exists
     expect(test('-e', `${GENERATED_FOLDER}/make.js`)).to.be(true)
