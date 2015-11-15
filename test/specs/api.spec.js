@@ -39,10 +39,10 @@ describe('API methods', function() {
       compiler: { modular: true }
     }).error).to.be(false)
 
-    expect(cli.make).withArgs({
+    expect(cli.make({
       from: `${TAGS_FOLDER}/component.tag`,
       compiler: { modular: true, template: 'nope' }
-    }).to.throwError()
+    }).error).to.be('The "nope" html preprocessor was not found. Have you installed it locally?')
 
     // check if the file exists
     expect(test('-e', `${GENERATED_FOLDER}/make-component.js`)).to.be(true)
