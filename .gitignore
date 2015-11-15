@@ -56,6 +56,9 @@ coverage
 # these files are generated anyway
 test/generated/*
 test/tags/*.js
+test/tags/export/*.html
+test/tags/export/*.css
+test/tags/export/*.js
 test/tags/analyzer/*.js
 
 !.gitmodules
