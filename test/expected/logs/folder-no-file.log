@@ -5,4 +5,7 @@ test/tags/analyzer/tag-unmatch.tag -> test/tags/analyzer/tag-unmatch.js
 test/tags/analyzer/valid.tag -> test/tags/analyzer/valid.js
 test/tags/component-2.tag -> test/tags/component-2.js
 test/tags/component.tag -> test/tags/component.js
+test/tags/export/html-export.tag -> test/tags/export/html-export.js
+test/tags/export/js-export.tag -> test/tags/export/js-export.js
+test/tags/export/style-export.tag -> test/tags/export/style-export.js
 test/tags/wrong-component.tag -> test/tags/wrong-component.js

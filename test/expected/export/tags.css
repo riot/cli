@@ -1,0 +1,3 @@
+html-export,[riot-tag="html-export"] { color: red; } html-export p,[riot-tag="html-export"] p { font-size: 11px; }
+js-export,[riot-tag="js-export"] { color: red; } js-export p,[riot-tag="js-export"] p { font-size: 11px; }
+style-export,[riot-tag="style-export"] { color: red; } style-export p,[riot-tag="style-export"] p { font-size: 11px; }

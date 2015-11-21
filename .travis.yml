@@ -10,7 +10,7 @@ after_success:
   make test-coveralls
 
 before_install:
-  npm install babel jade coffee-script
+  npm install babel jade coffee-script node-sass
 
 notifications:
     email: false

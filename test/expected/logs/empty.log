@@ -7,11 +7,13 @@ Options:
   -v, --version      Print Riot's version
   -w, --watch        Watch for changes
   -c, --compact      Minify </p> <p> to </p><p>
+  -e, --export One of: css, js, html  Compile and export only the css or html or js from your tags
   -t, --type String  JavaScript pre-processor. Built-in support for: es6, coffeescript, typescript, livescript, none
   --check            Check the syntax errors on a single tag
   -m, --modular      AMD and CommonJS
   -s, --silent       Silence build output
   --template String  HTML pre-processor. Built-in support for: jade
+  --style String     Css pre-processor. Built-in support for: sass, scss, less, stylus
   --whitespace       Preserve newlines and whitepace
   --brackets String  Change brackets used for expressions. Defaults to { }
   --colors           Turn on colorized output
@@ -39,6 +41,7 @@ Examples for options:
   riot --compact foo bar
   riot foo bar --compact
   riot test.tag --type coffeescript --expr
+  riot test.tag --style sass --export css test.css
 
-Version 2.3.11
+Version 2.3.13
 

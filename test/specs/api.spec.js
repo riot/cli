@@ -1,6 +1,7 @@
 require('shelljs/global')
 
 const TAGS_FOLDER = 'test/tags',
+  EXPECTED_FOLDER = 'test/expected',
   GENERATED_FOLDER = 'test/generated',
   cli = require('../../lib')
 
@@ -51,6 +52,51 @@ describe('API methods', function() {
     expect(cli.make({from: 'test/tags', to: `${GENERATED_FOLDER}/make.js`}).error).to.be(false)
     // check if the file exists
     expect(test('-e', `${GENERATED_FOLDER}/make.js`)).to.be(true)
+  })
+
+  it('make using the --export feature', function() {
+    cli.make({
+      from: `${TAGS_FOLDER}/export`,
+      to: `${GENERATED_FOLDER}/export/make-tags.html`,
+      export: 'html',
+      compiler: {
+        entities: true
+      }
+    })
+    expect(cat(`${GENERATED_FOLDER}/export/make-tags.html`)).to.be(cat(`${EXPECTED_FOLDER}/export/tags.html`))
+
+    cli.make({
+      from: `${TAGS_FOLDER}/export`,
+      to: `${GENERATED_FOLDER}/export/make-tags.js`,
+      export: 'js',
+      compiler: {
+        entities: true
+      }
+    })
+    expect(cat(`${GENERATED_FOLDER}/export/make-tags.js`)).to.be(cat(`${EXPECTED_FOLDER}/export/tags.js`))
+
+    cli.make({
+      from: `${TAGS_FOLDER}/export`,
+      to: `${GENERATED_FOLDER}/export/make-tags.css`,
+      export: 'css',
+      compiler: {
+        entities: true
+      }
+    })
+    expect(cat(`${GENERATED_FOLDER}/export/make-tags.css`)).to.be(cat(`${EXPECTED_FOLDER}/export/tags.css`))
+
+    cli.make({
+      from: `${TAGS_FOLDER}/export`,
+      to: `${GENERATED_FOLDER}/export/make-tags.scss.css`,
+      export: 'css',
+      ext: 'html',
+      compiler: {
+        style: 'sass',
+        entities: true
+      }
+    })
+
+    expect(cat(`${GENERATED_FOLDER}/export/make-tags.scss.css`)).to.be(cat(`${EXPECTED_FOLDER}/export/tags.scss.css`))
   })
 
   it('watch folder', (done) => {

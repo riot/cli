@@ -1,1 +1,3 @@
 test/tags/component-html.html -> test/tags/component-html.js
+test/tags/export/html-export.html -> test/tags/export/html-export.js
+test/tags/export/style-export.html -> test/tags/export/style-export.js
