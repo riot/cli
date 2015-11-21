@@ -96,7 +96,7 @@ describe('API methods', function() {
       }
     })
 
-    expect(cat(`${GENERATED_FOLDER}/export/make-tags.scss.css`)).to.be(cat(`${EXPECTED_FOLDER}/export/tags.scss.css`))
+    expect(cat(`${GENERATED_FOLDER}/export/make-tags.scss.css`).replace(/\n/g, '')).to.be(cat(`${EXPECTED_FOLDER}/export/tags.scss.css`).replace(/\n/g, ''))
   })
 
   it('watch folder', (done) => {
