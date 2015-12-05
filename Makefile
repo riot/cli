@@ -22,7 +22,7 @@ test-cli:
 	$(CLI_PATH) test/tags/wrong-component.tag --check > $(CLI_OUTPUT_FOLDER)/analyzer-fail.log
 	$(CLI_PATH) test/tags/component.tag --check > $(CLI_OUTPUT_FOLDER)/analyzer-ok.log
 	$(CLI_PATH) test/tags > $(CLI_OUTPUT_FOLDER)/folder-no-file.log
-	$(CLI_PATH) test/tags --ext html > $(CLI_OUTPUT_FOLDER)/folder-ext.log
+	$(CLI_PATH) test/tags --ext foo > $(CLI_OUTPUT_FOLDER)/folder-ext.log
 	$(CLI_PATH) test/tags $(GENERATED_FOLDER)/cmp.js > $(CLI_OUTPUT_FOLDER)/folder-and-file.log
 	$(CLI_PATH) test/tags/component.tag $(GENERATED_FOLDER)/component.js > $(CLI_OUTPUT_FOLDER)/file-and-file.log
 	$(CLI_PATH) test/tags $(GENERATED_FOLDER)/component-jade.js --ext jade --template jade --type coffee > $(CLI_OUTPUT_FOLDER)/parsers.log
