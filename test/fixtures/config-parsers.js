@@ -1,7 +1,6 @@
-
 export default {
   from: 'test/tags/component.tag',
-  to: 'tags.js',
+  to: 'test/generated/config-file/parsers.js',
   compiler: {
     template: 'foo',
     type: 'baz',

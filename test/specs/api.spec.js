@@ -25,33 +25,60 @@ describe('API methods', function() {
     expect(cli.check({from: `${TAGS_FOLDER}`})[0].file).to.be.a('string')
   })
 
-  it('make', () => {
-    expect(cli.make({from: 'some/random/path.tag'}).error).to.be.a('string')
-    expect(cli.make({from: `${TAGS_FOLDER}/component.tag`}).error).to.be(false)
+  it('make with the wrong path should return an error', function() {
     expect(cli.make({
+      from: 'some/random/path.tag'
+    }).error).to.be.a('string')
+  })
+
+  it('make with the right path should not return any error', function() {
+    expect(cli.make({
+      from: `${TAGS_FOLDER}/component.tag`
+    }).error).to.be(false)
+  })
+
+  it('make all the tags in a folder', function() {
+    cli.make({
+      from: 'test/tags', to: `${GENERATED_FOLDER}/make.js`
+    })
+    // check if the file exists
+    expect(test('-e', `${GENERATED_FOLDER}/make.js`)).to.be(true)
+  })
+
+  it('make using the modular flag on a single tag must return compliant UMD code', function() {
+    cli.make({
       from: `${TAGS_FOLDER}/component.tag`,
       to: `${GENERATED_FOLDER}/make-component.js`,
       compiler: { modular: true }
-    }).error).to.be(false)
+    })
 
-    expect(cli.make({
+    expect(test('-e', `${GENERATED_FOLDER}/make-component.js`)).to.be(true)
+    expect(cat(`${GENERATED_FOLDER}/make-component.js`)).to.match(/require/)
+
+  })
+
+  it('make using the modular flag on multiple tags must return compliant UMD code', function() {
+    cli.make({
       from: `${TAGS_FOLDER}`,
       to: `${GENERATED_FOLDER}/make-components.js`,
       compiler: { modular: true }
-    }).error).to.be(false)
+    })
 
-    expect(cli.make({
+    expect(test('-e', `${GENERATED_FOLDER}/make-components.js`)).to.be(true)
+    expect(cat(`${GENERATED_FOLDER}/make-components.js`)).to.match(/require/)
+
+  })
+
+  it('make using a missing preprocessor should throw an error', function() {
+    var result = cli.make({
       from: `${TAGS_FOLDER}/component.tag`,
       compiler: { modular: true, template: 'nope' }
-    }).error).to.be('The "nope" html preprocessor was not found. Have you installed it locally?')
+    })
 
-    // check if the file exists
-    expect(test('-e', `${GENERATED_FOLDER}/make-component.js`)).to.be(true)
-    expect(cat(`${GENERATED_FOLDER}/make-component.js`)).to.match(/require/)
-    expect(cat(`${GENERATED_FOLDER}/make-components.js`)).to.match(/require/)
-    expect(cli.make({from: 'test/tags', to: `${GENERATED_FOLDER}/make.js`}).error).to.be(false)
-    // check if the file exists
-    expect(test('-e', `${GENERATED_FOLDER}/make.js`)).to.be(true)
+    expect(result.error)
+      .to
+      .be('The "nope" html preprocessor was not found. Have you installed it locally?')
+
   })
 
   it('make using the --export feature', function() {

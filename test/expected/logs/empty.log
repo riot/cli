@@ -7,6 +7,7 @@ Options:
   -v, --version      Print Riot's version
   -w, --watch        Watch for changes
   -c, --compact      Minify </p> <p> to </p><p>
+  --config String    Specify the path to a configuration file to compile your tags
   -e, --export One of: css, js, html  Compile and export only the css or html or js from your tags
   -t, --type String  JavaScript pre-processor. Built-in support for: es6, coffeescript, typescript, livescript, none
   --check            Check the syntax errors on a single tag
