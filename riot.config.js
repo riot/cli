@@ -10,17 +10,26 @@ export default {
   parsers: {
     html: {
       foo: function (html, opts, url) {
-        return ''
+        return `
+          <tag>
+            <p>HI</p>
+            <script>
+              var foo = "foo"
+            </script>
+            <style scoped>
+            </style>
+          </tag>
+        `
       }
     },
     css: {
       bar: function(tag, css, opts, url) {
-        return ''
+        return ':scope { color: red }'
       }
     },
     js: {
       baz: function (js, opts, url) {
-        return ''
+        return 'var baz ="baz"'
       }
     }
   }
