@@ -3,23 +3,24 @@ Builds .tag files to .js
 
 Options:
 
-  -h, --help         You're reading it
-  -v, --version      Print Riot's version
-  -w, --watch        Watch for changes
-  -c, --compact      Minify </p> <p> to </p><p>
-  --config String    Specify the path to a configuration file to compile your tags
-  -e, --export One of: css, js, html  Compile and export only the css or html or js from your tags
-  -t, --type String  JavaScript pre-processor. Built-in support for: es6, coffeescript, typescript, livescript, none
-  --check            Check the syntax errors on a single tag
-  -m, --modular      AMD and CommonJS
-  -s, --silent       Silence build output
-  --template String  HTML pre-processor. Built-in support for: jade
-  --style String     Css pre-processor. Built-in support for: sass, scss, less, stylus
-  --whitespace       Preserve newlines and whitepace
-  --brackets String  Change brackets used for expressions. Defaults to { }
-  --colors           Turn on colorized output
-  --expr             Run expressions trough parser defined with --type
-  --ext String       Change tag file extension. Defaults to .tag - default: tag
+  -h, --help           You're reading it
+  -v, --version        Print Riot's version
+  -w, --watch          Watch for changes
+  -c, --compact        Minify </p> <p> to </p><p>
+  -m, --modular        AMD and CommonJS
+  -s, --silent         Silence build output
+  --whitespace         Preserve newlines and whitepace
+  --check              Check the syntax errors on a single tag
+  --colors             Turn on colorized output
+  --expr               Run expressions trough parser defined with --type
+  --config String      Specify the path to a configuration file to compile your tags
+  -e, --export String  Compile and export only the css or html or js from your tags - either: css, js, or html
+  -t, --type String    JavaScript pre-processor. Built-in support for: es6, coffeescript, typescript, livescript, none
+  --exclude String     Compile and excluding entities (css, html or js) from the output - either: css, js, or html
+  --template String    HTML pre-processor. Built-in support for: jade
+  --style String       Css pre-processor. Built-in support for: sass, scss, less, stylus
+  --brackets String    Change brackets used for expressions. Defaults to { }
+  --ext String         Change tag file extension. Defaults to .tag - default: tag
 
 
 Build a single .tag file:
@@ -37,12 +38,14 @@ Build all .tag files in a directory:
 Examples for options:
 
   riot foo bar
+  riot --config riot.config
   riot --w foo bar
   riot --watch foo bar
   riot --compact foo bar
   riot foo bar --compact
-  riot test.tag --type coffeescript --expr
-  riot test.tag --style sass --export css test.css
+  riot foo.tag --type coffeescript --expr
+  riot foo.tag --style sass --export css foo.css
+  riot foo.tag --exclude css foo.js
 
-Version 2.3.13
+Version 2.3.13-beta - compiler 2.3.16-beta
 

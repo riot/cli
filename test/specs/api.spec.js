@@ -14,7 +14,7 @@ describe('API methods', function() {
   })
 
   it('version', () => {
-    expect(cli.version()).to.be(require('riot-compiler/package.json').version)
+    expect(cli.version()).to.be(`${require('../../package.json').version} - compiler ${require('riot-compiler/package.json').version}`)
   })
 
   it('check', () => {
@@ -124,6 +124,28 @@ describe('API methods', function() {
     })
 
     expect(cat(`${GENERATED_FOLDER}/export/make-tags.scss.css`).replace(/\n/g, '')).to.be(cat(`${EXPECTED_FOLDER}/export/tags.scss.css`).replace(/\n/g, ''))
+  })
+
+  it('make using the --exclude flag', function() {
+    cli.make({
+      from: `${TAGS_FOLDER}/exclude`,
+      to: `${GENERATED_FOLDER}/exclude/css.js`,
+      compiler: {
+        exclude: ['css']
+      }
+    })
+    expect(cat(`${GENERATED_FOLDER}/exclude/css.js`)).to.be(cat(`${EXPECTED_FOLDER}/exclude/css.js`))
+
+    cli.make({
+      from: `${TAGS_FOLDER}/exclude`,
+      to: `${GENERATED_FOLDER}/exclude/css-js.js`,
+      compiler: {
+        exclude: ['css', 'js']
+      }
+    })
+
+    expect(cat(`${GENERATED_FOLDER}/exclude/css-js.js`)).to.be(cat(`${EXPECTED_FOLDER}/exclude/css-js.js`))
+
   })
 
   it('watch folder', (done) => {

@@ -3,6 +3,9 @@ require('shelljs/global')
 const
   EXPECTED_FOLDER = 'test/expected',
   GENERATED_FOLDER = 'test/generated',
+  trim = function(string) {
+    return string.replace(/^\s+|\s+$/gm, '')
+  },
   cli = require('../../lib')
 
 describe('External config file', function() {
@@ -12,8 +15,8 @@ describe('External config file', function() {
       'test/fixtures/config-parsers'
     ])
     expect(test('-e', `${GENERATED_FOLDER}/config-file/parsers.js`)).to.be(true)
-    expect(cat(`${GENERATED_FOLDER}/config-file/parsers.js`))
+    expect(trim(cat(`${GENERATED_FOLDER}/config-file/parsers.js`)))
       .to
-      .be(cat(`${EXPECTED_FOLDER}/config-file/parsers.js`))
+      .be(trim(cat(`${EXPECTED_FOLDER}/config-file/parsers.js`)))
   })
 })
