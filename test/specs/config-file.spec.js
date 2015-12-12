@@ -18,5 +18,15 @@ describe('External config file', function() {
     expect(trim(cat(`${GENERATED_FOLDER}/config-file/parsers.js`)))
       .to
       .be(trim(cat(`${EXPECTED_FOLDER}/config-file/parsers.js`)))
+
+    cli._cli([
+      '--config',
+      'test/fixtures/config-parsers-jade'
+    ])
+
+    expect(test('-e', `${GENERATED_FOLDER}/config-file/parsers-jade.js`)).to.be(true)
+    expect(trim(cat(`${GENERATED_FOLDER}/config-file/parsers-jade.js`)))
+      .to
+      .be(trim(cat(`${EXPECTED_FOLDER}/config-file/parsers-jade.js`)))
   })
 })
