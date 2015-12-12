@@ -1,1 +1,2 @@
 test/tags/component-jade.jade -> test/generated/component-jade.js
+test/tags/parsers/jade.jade -> test/generated/component-jade.js
