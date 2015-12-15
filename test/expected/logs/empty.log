@@ -47,5 +47,5 @@ Examples for options:
   riot foo.tag --style sass --export css foo.css
   riot foo.tag --exclude css foo.js
 
-Version 2.3.13 - compiler 2.3.18
+Version 2.3.13 - compiler 2.3.19
 
