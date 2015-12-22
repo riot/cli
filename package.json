@@ -41,7 +41,7 @@
     "chokidar": "^1.4.1",
     "co": "^4.6.0",
     "optionator": "^0.7.1",
-    "riot-compiler": "^2.3.19",
+    "riot-compiler": "^2.3.*",
     "rollup": "^0.21.3",
     "shelljs": "^0.5.3"
   }
