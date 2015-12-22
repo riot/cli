@@ -15,8 +15,8 @@ describe('API methods', function() {
 
   it('version', () => {
     expect(cli.version()).to.be(`
-riot-cli:      ${require('../../package.json').version} - https://github.com/riot/cli
-riot-compiler: ${require('riot-compiler/package.json').version} - https://github.com/riot/compiler
+  riot-cli:      ${require('../../package.json').version} - https://github.com/riot/cli
+  riot-compiler: ${require('riot-compiler/package.json').version} - https://github.com/riot/compiler
 `)
   })
 
