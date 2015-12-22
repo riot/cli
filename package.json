@@ -1,6 +1,6 @@
 {
   "name": "riot-cli",
-  "version": "2.3.13-beta",
+  "version": "2.3.13",
   "description": "Riot command line utility",
   "main": "lib/index.js",
   "engines": {
@@ -41,7 +41,7 @@
     "chokidar": "^1.4.1",
     "co": "^4.6.0",
     "optionator": "^0.7.1",
-    "riot-compiler": "^2.3.16-beta",
+    "riot-compiler": "^2.3.18",
     "rollup": "^0.21.2",
     "shelljs": "^0.5.3"
   }

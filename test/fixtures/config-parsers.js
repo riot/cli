@@ -1,11 +1,9 @@
 export default {
   from: 'test/tags/component.tag',
   to: 'test/generated/config-file/parsers.js',
-  compiler: {
-    template: 'foo',
-    type: 'baz',
-    style: 'bar'
-  },
+  template: 'foo',
+  type: 'baz',
+  style: 'bar',
   parsers: {
     html: {
       foo: function (html, opts, url) {
