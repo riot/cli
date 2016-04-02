@@ -113,6 +113,7 @@ describe('API methods', function() {
         entities: true
       }
     })
+
     expect(cat(`${GENERATED_FOLDER}/export/make-tags.css`)).to.be(cat(`${EXPECTED_FOLDER}/export/tags.css`))
 
     cli.make({
@@ -127,6 +128,7 @@ describe('API methods', function() {
     })
 
     expect(cat(`${GENERATED_FOLDER}/export/make-tags.scss.css`).replace(/\n/g, '')).to.be(cat(`${EXPECTED_FOLDER}/export/tags.scss.css`).replace(/\n/g, ''))
+
   })
 
   it('make using the --exclude flag', function() {
