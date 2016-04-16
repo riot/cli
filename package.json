@@ -25,9 +25,9 @@
   ],
   "devDependencies": {
     "coveralls": "^2.11.9",
-    "eslint": "^2.5.3",
+    "eslint": "^2.8.0",
     "expect.js": "^0.3.1",
-    "istanbul": "^0.4.2",
+    "istanbul": "^0.4.3",
     "mocha": "^2.4.5"
   },
   "license": "MIT",
@@ -42,7 +42,7 @@
     "co": "^4.6.0",
     "optionator": "^0.8.1",
     "riot-compiler": "^2.3.*",
-    "rollup": "^0.25.7",
+    "rollup": "^0.25.8",
     "shelljs": "^0.6.0"
   }
 }
