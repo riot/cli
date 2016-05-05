@@ -15,6 +15,7 @@ Options:
   --expr               Run expressions trough parser defined with --type
   --config String      Specify the path to a configuration file to compile your tags
   -e, --export String  Compile and export only the css or html or js from your tags - either: css, js, or html
+  -n, --new String     Create an empty tag template
   -t, --type String    JavaScript pre-processor. Built-in support for: es6, coffeescript, typescript, livescript, none
   --exclude String     Compile and excluding entities (css, html or js) from the output - either: css, js, or html
   --template String    HTML pre-processor. Built-in support for: jade
@@ -35,6 +36,12 @@ Build all .tag files in a directory:
   riot foo/bar baz       To a different directory (baz/**/*.js)
   riot foo/bar baz.js    To a single concatenated file (baz.js)
 
+Create an empty tag template
+
+  riot --new foo
+  riot --new foo/bar
+  riot --new foo/bar --ext html
+
 Examples for options:
 
   riot foo bar
@@ -47,8 +54,8 @@ Examples for options:
   riot foo.tag --style sass --export css foo.css
   riot foo.tag --exclude css foo.js
 
-Version 
-riot-cli:      2.3.13 - https://github.com/riot/cli
-riot-compiler: 2.3.19 - https://github.com/riot/compiler
+Version
+  riot-cli:      2.4.1 - https://github.com/riot/cli
+  riot-compiler: 2.4.1 - https://github.com/riot/compiler
 
 

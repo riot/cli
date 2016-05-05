@@ -15,8 +15,8 @@ describe('API methods', function() {
 
   it('version', () => {
     expect(cli.version()).to.be(`
-riot-cli:      ${require('../../package.json').version} - https://github.com/riot/cli
-riot-compiler: ${require('riot-compiler/package.json').version} - https://github.com/riot/compiler
+  riot-cli:      ${require('../../package.json').version} - https://github.com/riot/cli
+  riot-compiler: ${require('riot-compiler/package.json').version} - https://github.com/riot/compiler
 `)
   })
 
@@ -93,7 +93,7 @@ riot-compiler: ${require('riot-compiler/package.json').version} - https://github
         entities: true
       }
     })
-    expect(cat(`${GENERATED_FOLDER}/export/make-tags.html`)).to.be(cat(`${EXPECTED_FOLDER}/export/tags.html`))
+    expect(cat(`${GENERATED_FOLDER}/export/make-tags.html`).toString()).to.be(cat(`${EXPECTED_FOLDER}/export/tags.html`).toString())
 
     cli.make({
       from: `${TAGS_FOLDER}/export`,
@@ -103,7 +103,7 @@ riot-compiler: ${require('riot-compiler/package.json').version} - https://github
         entities: true
       }
     })
-    expect(cat(`${GENERATED_FOLDER}/export/make-tags.js`)).to.be(cat(`${EXPECTED_FOLDER}/export/tags.js`))
+    expect(cat(`${GENERATED_FOLDER}/export/make-tags.js`).toString()).to.be(cat(`${EXPECTED_FOLDER}/export/tags.js`).toString())
 
     cli.make({
       from: `${TAGS_FOLDER}/export`,
@@ -113,7 +113,8 @@ riot-compiler: ${require('riot-compiler/package.json').version} - https://github
         entities: true
       }
     })
-    expect(cat(`${GENERATED_FOLDER}/export/make-tags.css`)).to.be(cat(`${EXPECTED_FOLDER}/export/tags.css`))
+
+    expect(cat(`${GENERATED_FOLDER}/export/make-tags.css`).toString()).to.be(cat(`${EXPECTED_FOLDER}/export/tags.css`).toString())
 
     cli.make({
       from: `${TAGS_FOLDER}/export`,
@@ -126,7 +127,8 @@ riot-compiler: ${require('riot-compiler/package.json').version} - https://github
       }
     })
 
-    expect(cat(`${GENERATED_FOLDER}/export/make-tags.scss.css`).replace(/\n/g, '')).to.be(cat(`${EXPECTED_FOLDER}/export/tags.scss.css`).replace(/\n/g, ''))
+    expect(cat(`${GENERATED_FOLDER}/export/make-tags.scss.css`).toString().replace(/\n/g, '')).to.be(cat(`${EXPECTED_FOLDER}/export/tags.scss.css`).toString().replace(/\n/g, ''))
+
   })
 
   it('make using the --exclude flag', function() {
@@ -137,7 +139,7 @@ riot-compiler: ${require('riot-compiler/package.json').version} - https://github
         exclude: ['css']
       }
     })
-    expect(cat(`${GENERATED_FOLDER}/exclude/css.js`)).to.be(cat(`${EXPECTED_FOLDER}/exclude/css.js`))
+    expect(cat(`${GENERATED_FOLDER}/exclude/css.js`).toString()).to.be(cat(`${EXPECTED_FOLDER}/exclude/css.js`).toString())
 
     cli.make({
       from: `${TAGS_FOLDER}/exclude`,
@@ -147,7 +149,7 @@ riot-compiler: ${require('riot-compiler/package.json').version} - https://github
       }
     })
 
-    expect(cat(`${GENERATED_FOLDER}/exclude/css-js.js`)).to.be(cat(`${EXPECTED_FOLDER}/exclude/css-js.js`))
+    expect(cat(`${GENERATED_FOLDER}/exclude/css-js.js`).toString()).to.be(cat(`${EXPECTED_FOLDER}/exclude/css-js.js`).toString())
 
   })
 
