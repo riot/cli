@@ -93,7 +93,7 @@ describe('API methods', function() {
         entities: true
       }
     })
-    expect(cat(`${GENERATED_FOLDER}/export/make-tags.html`)).to.be(cat(`${EXPECTED_FOLDER}/export/tags.html`))
+    expect(cat(`${GENERATED_FOLDER}/export/make-tags.html`).toString()).to.be(cat(`${EXPECTED_FOLDER}/export/tags.html`).toString())
 
     cli.make({
       from: `${TAGS_FOLDER}/export`,
@@ -103,7 +103,7 @@ describe('API methods', function() {
         entities: true
       }
     })
-    expect(cat(`${GENERATED_FOLDER}/export/make-tags.js`)).to.be(cat(`${EXPECTED_FOLDER}/export/tags.js`))
+    expect(cat(`${GENERATED_FOLDER}/export/make-tags.js`).toString()).to.be(cat(`${EXPECTED_FOLDER}/export/tags.js`).toString())
 
     cli.make({
       from: `${TAGS_FOLDER}/export`,
@@ -114,7 +114,7 @@ describe('API methods', function() {
       }
     })
 
-    expect(cat(`${GENERATED_FOLDER}/export/make-tags.css`)).to.be(cat(`${EXPECTED_FOLDER}/export/tags.css`))
+    expect(cat(`${GENERATED_FOLDER}/export/make-tags.css`).toString()).to.be(cat(`${EXPECTED_FOLDER}/export/tags.css`).toString())
 
     cli.make({
       from: `${TAGS_FOLDER}/export`,
@@ -127,7 +127,7 @@ describe('API methods', function() {
       }
     })
 
-    expect(cat(`${GENERATED_FOLDER}/export/make-tags.scss.css`).replace(/\n/g, '')).to.be(cat(`${EXPECTED_FOLDER}/export/tags.scss.css`).replace(/\n/g, ''))
+    expect(cat(`${GENERATED_FOLDER}/export/make-tags.scss.css`).toString().replace(/\n/g, '')).to.be(cat(`${EXPECTED_FOLDER}/export/tags.scss.css`).toString().replace(/\n/g, ''))
 
   })
 
@@ -139,7 +139,7 @@ describe('API methods', function() {
         exclude: ['css']
       }
     })
-    expect(cat(`${GENERATED_FOLDER}/exclude/css.js`)).to.be(cat(`${EXPECTED_FOLDER}/exclude/css.js`))
+    expect(cat(`${GENERATED_FOLDER}/exclude/css.js`).toString()).to.be(cat(`${EXPECTED_FOLDER}/exclude/css.js`).toString())
 
     cli.make({
       from: `${TAGS_FOLDER}/exclude`,
@@ -149,7 +149,7 @@ describe('API methods', function() {
       }
     })
 
-    expect(cat(`${GENERATED_FOLDER}/exclude/css-js.js`)).to.be(cat(`${EXPECTED_FOLDER}/exclude/css-js.js`))
+    expect(cat(`${GENERATED_FOLDER}/exclude/css-js.js`).toString()).to.be(cat(`${EXPECTED_FOLDER}/exclude/css-js.js`).toString())
 
   })
 

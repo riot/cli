@@ -8,9 +8,9 @@ env:
   #                                                                         #
   ###########################################################################
 
-  browser: true
   es6: true
   node: true
+  shelljs: true
 
 parserOptions:
   ecmaFeatures:
@@ -20,15 +20,6 @@ parserOptions:
     blockBindings: true
 
 globals:
-
-  ###########################################################################
-  #                                                                         #
-  #   GLOBALS: ESLint will assume the following variables are declared      #
-  #   globally; other variables will require explicit declaration.          #
-  #                                                                         #
-  ###########################################################################
-
-  require: true
 
 rules:
 

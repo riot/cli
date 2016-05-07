@@ -1,6 +1,6 @@
 {
   "name": "riot-cli",
-  "version": "2.4.1",
+  "version": "2.5.0",
   "description": "Riot command line utility",
   "main": "lib/index.js",
   "engines": {
@@ -25,7 +25,7 @@
   ],
   "devDependencies": {
     "coveralls": "^2.11.9",
-    "eslint": "^2.8.0",
+    "eslint": "^2.9.0",
     "expect.js": "^0.3.1",
     "istanbul": "^0.4.3",
     "mocha": "^2.4.5"
@@ -41,8 +41,8 @@
     "chokidar": "^1.4.3",
     "co": "^4.6.0",
     "optionator": "^0.8.1",
-    "riot-compiler": "^2.3.*",
-    "rollup": "^0.25.8",
-    "shelljs": "^0.6.0"
+    "riot-compiler": "^2.4.*",
+    "rollup": "^0.26.2",
+    "shelljs": "^0.7.0"
   }
 }
