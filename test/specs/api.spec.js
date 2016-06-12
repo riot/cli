@@ -37,7 +37,7 @@ describe('API methods', function() {
   it('make with the right path should not return any error', function() {
     expect(cli.make({
       from: `${TAGS_FOLDER}/component.tag`
-    }).error).to.be(false)
+    }).error).to.be(null)
   })
 
   it('make all the tags in a folder', function() {
@@ -80,7 +80,7 @@ describe('API methods', function() {
 
     expect(result.error)
       .to
-      .be('The "nope" html preprocessor was not found. Have you installed it locally?')
+      .be('The "nope" html preprocessor was not found. Have you registered it?')
 
   })
 
@@ -151,6 +151,17 @@ describe('API methods', function() {
 
     expect(cat(`${GENERATED_FOLDER}/exclude/css-js.js`).toString()).to.be(cat(`${EXPECTED_FOLDER}/exclude/css-js.js`).toString())
 
+  })
+
+  it('check the error messages when the parser was not found', function() {
+    expect(cli.make({
+      from: `${TAGS_FOLDER}`,
+      to: `${GENERATED_FOLDER}`,
+      ext: 'html',
+      compiler: {
+        type: 'typescript'
+      }
+    }).error).to.be.a('string') // error string
   })
 
   it('watch folder', (done) => {
