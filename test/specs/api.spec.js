@@ -157,7 +157,7 @@ describe('API methods', function() {
     expect(cli.make({
       from: `${TAGS_FOLDER}`,
       to: `${GENERATED_FOLDER}`,
-      ext: 'html',
+      ext: 'tag',
       compiler: {
         type: 'typescript'
       }
