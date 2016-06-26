@@ -12,7 +12,7 @@ Options:
   --whitespace         Preserve newlines and whitepace
   --check              Check the syntax errors on a single tag
   --colors             Turn on colorized output
-  --expr               Run expressions trough parser defined with --type
+  --expr               Run expressions through parser defined with --type
   --config String      Specify the path to a configuration file to compile your tags
   -e, --export String  Compile and export only the css or html or js from your tags - either: css, js, or html
   -n, --new String     Create an empty tag template
