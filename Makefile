@@ -25,7 +25,7 @@ test-cli:
 	$(CLI_PATH) test/tags --ext foo > $(CLI_OUTPUT_FOLDER)/folder-ext.log
 	$(CLI_PATH) test/tags $(GENERATED_FOLDER)/cmp.js > $(CLI_OUTPUT_FOLDER)/folder-and-file.log
 	$(CLI_PATH) test/tags/component.tag $(GENERATED_FOLDER)/component.js > $(CLI_OUTPUT_FOLDER)/file-and-file.log
-	$(CLI_PATH) test/tags $(GENERATED_FOLDER)/component-jade.js --ext jade --template jade --type coffee > $(CLI_OUTPUT_FOLDER)/parsers.log
+	$(CLI_PATH) test/tags $(GENERATED_FOLDER)/component-pug.js --ext pug --template pug --type coffee > $(CLI_OUTPUT_FOLDER)/parsers.log
 	$(CLI_PATH) test/tags/export $(GENERATED_FOLDER)/export/tags.html --export html
 	$(CLI_PATH) test/tags/export $(GENERATED_FOLDER)/export/tags.js --export js
 	$(CLI_PATH) test/tags/export $(GENERATED_FOLDER)/export/tags.css --export css

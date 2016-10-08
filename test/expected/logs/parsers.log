@@ -1,3 +1,2 @@
-DEPRECATION WARNING: jade was renamed "pug" - the jade parser will be removed in riot@3.0.0!
-test/tags/component-jade.jade -> test/generated/component-jade.js
-test/tags/parsers/jade.jade -> test/generated/component-jade.js
+test/tags/component-pug.pug -> test/generated/component-pug.js
+test/tags/parsers/pug.pug -> test/generated/component-pug.js

@@ -26,17 +26,17 @@ describe('External config file', function() {
 
   })
 
-  it('generate the tags using custom jade parser', function(done) {
+  it('generate the tags using custom pug parser', function(done) {
     cli._cli([
       '--config',
-      'test/fixtures/config-parsers-jade'
+      'test/fixtures/config-parsers-pug'
     ])
 
     setImmediate(function() {
-      expect(test('-e', `${GENERATED_FOLDER}/config-file/parsers-jade.js`)).to.be(true)
-      expect(trim(cat(`${GENERATED_FOLDER}/config-file/parsers-jade.js`)))
+      expect(test('-e', `${GENERATED_FOLDER}/config-file/parsers-pug.js`)).to.be(true)
+      expect(trim(cat(`${GENERATED_FOLDER}/config-file/parsers-pug.js`)))
         .to
-        .be(trim(cat(`${EXPECTED_FOLDER}/config-file/parsers-jade.js`)))
+        .be(trim(cat(`${EXPECTED_FOLDER}/config-file/parsers-pug.js`)))
       done()
     })
 

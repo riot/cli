@@ -18,7 +18,7 @@ Options:
   -n, --new String     Create an empty tag template
   -t, --type String    JavaScript pre-processor. Built-in support for: es6, coffeescript, typescript, livescript, none
   --exclude String     Compile and excluding entities (css, html or js) from the output - either: css, js, or html
-  --template String    HTML pre-processor. Built-in support for: jade
+  --template String    HTML pre-processor. Built-in support for: pug
   --style String       Css pre-processor. Built-in support for: sass, scss, less, stylus
   --brackets String    Change brackets used for expressions. Defaults to { }
   --ext String         Change tag file extension. Defaults to .tag - default: tag
@@ -56,6 +56,6 @@ Examples for options:
 
 Version 
   riot-cli:      2.6.1 - https://github.com/riot/cli
-  riot-compiler: 2.5.3 - https://github.com/riot/compiler
+  riot-compiler: 2.5.5 - https://github.com/riot/compiler
 
 
