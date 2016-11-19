@@ -55,7 +55,7 @@ Examples for options:
   riot foo.tag --exclude css foo.js
 
 Version 
-  riot-cli:      2.6.2 - https://github.com/riot/cli
-  riot-compiler: 2.5.5 - https://github.com/riot/compiler
+  riot-cli:      3.0.0 - https://github.com/riot/cli
+  riot-compiler: 3.0.0 - https://github.com/riot/compiler
 
 
