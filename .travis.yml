@@ -10,7 +10,7 @@ after_success:
   make test-coveralls
 
 before_install:
-  npm i babel pug coffee-script node-sass
+  npm run prepare
 
 notifications:
     email: false
