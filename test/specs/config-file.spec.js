@@ -43,6 +43,6 @@ describe('External config file', function() {
   })
 
   after(function() {
-    //rm(`${GENERATED_FOLDER}/config-file/*`)
+    rm(`${GENERATED_FOLDER}/config-file/*`)
   })
 })
