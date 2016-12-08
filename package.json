@@ -13,7 +13,8 @@
     "riot": "lib/index.js"
   },
   "scripts": {
-    "test": "make test"
+    "test": "make test",
+    "prepare": "npm i babel pug coffee-script node-sass"
   },
   "repository": {
     "type": "git",
@@ -41,7 +42,7 @@
     "chokidar": "^1.6.1",
     "co": "^4.6.0",
     "optionator": "^0.8.2",
-    "riot-compiler": "^3.0.0",
+    "riot-compiler": "^3.1.1",
     "rollup": "^0.36.3",
     "shelljs": "^0.7.5"
   }
