@@ -22,6 +22,8 @@ Options:
   --style String       Css pre-processor. Built-in support for: sass, scss, less, stylus
   --brackets String    Change brackets used for expressions. Defaults to { }
   --ext String         Change tag file extension. Defaults to .tag - default: tag
+  -i, --stdin          Read stdin as tag file
+  -o, --stdout         Print output into stdout
 
 
 Build a single .tag file:
@@ -53,9 +55,8 @@ Examples for options:
   riot foo.tag --type coffeescript --expr
   riot foo.tag --style sass --export css foo.css
   riot foo.tag --exclude css foo.js
+  cat foo.tag | riot --stdin --stdout > foo.js
 
-Version 
+Version
   riot-cli:      3.0.0 - https://github.com/riot/cli
   riot-compiler: 3.1.1 - https://github.com/riot/compiler
-
-
