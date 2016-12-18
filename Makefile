@@ -4,6 +4,7 @@ ESLINT = ./node_modules/eslint/bin/eslint.js
 MOCHA = ./node_modules/.bin/_mocha
 COVERALLS = ./node_modules/coveralls/bin/coveralls.js
 GENERATED_FOLDER = test/generated
+STDINOUT_FOLDER = $(GENERATED_FOLDER)/stdinout
 CLI_OUTPUT_FOLDER = $(GENERATED_FOLDER)/logs
 CLI_PATH = ./lib/index.js
 
@@ -14,6 +15,7 @@ eslint:
 	@ $(ESLINT) -c ./.eslintrc lib
 
 test-cli:
+	mkdir -p $(STDINOUT_FOLDER)
 	mkdir -p $(CLI_OUTPUT_FOLDER)
 	$(CLI_PATH) > $(CLI_OUTPUT_FOLDER)/empty.log
 	$(CLI_PATH) --silent > $(CLI_OUTPUT_FOLDER)/silent.log
@@ -30,6 +32,10 @@ test-cli:
 	$(CLI_PATH) test/tags/export $(GENERATED_FOLDER)/export/tags.js --export js
 	$(CLI_PATH) test/tags/export $(GENERATED_FOLDER)/export/tags.css --export css
 	$(CLI_PATH) test/tags/export/ $(GENERATED_FOLDER)/export/tags.scss.css --ext html --export css --style sass
+	cat test/tags/component.tag | $(CLI_PATH) --stdin --stdout > $(STDINOUT_FOLDER)/a.js
+	$(CLI_PATH) test/tags/component.tag --stdout > $(STDINOUT_FOLDER)/b.js
+	cat test/tags/component.tag | $(CLI_PATH) --stdin $(STDINOUT_FOLDER)/c.js
+	cat test/tags/component.tag | $(CLI_PATH) --stdin $(STDINOUT_FOLDER)
 
 test-mocha:
 	@ $(ISTANBUL) cover $(MOCHA) -- -R spec test/runner.js
