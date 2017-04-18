@@ -3,7 +3,7 @@
 
   this.msg = 'hi'
 
-  <style scoped>
+  <style>
     p {
       color: red;
     }

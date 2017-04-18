@@ -10,7 +10,7 @@ var riot = require('riot')
 
 <tag-with-style>
   <p>Hi!</p>
-  <style scoped>
+  <style>
     p { color: red }
   </style>
 </tag-with-style>
