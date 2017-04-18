@@ -172,8 +172,8 @@ describe('API methods', function() {
       watcher.add(`${TAGS_FOLDER}/component-copy.tag`)
       // hopefully this tag gets compiled after 3 secons
       setTimeout(() => {
+        rm(`${TAGS_FOLDER}/component-copy.tag`)
         expect(test('-e', `${TAGS_FOLDER}/component-copy.js`)).to.be(true)
-        rm(`${TAGS_FOLDER}/component-copy.*`)
         watcher.close()
         done()
       }, 3000)

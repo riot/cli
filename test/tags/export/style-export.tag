@@ -3,7 +3,7 @@
 
   this.message = 'hi'
 
-  <style scoped>
+  <style>
     :scope {
       color: red;
     }

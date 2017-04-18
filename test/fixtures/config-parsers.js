@@ -13,7 +13,7 @@ export default {
             <script>
               var foo = "foo"
             </script>
-            <style scoped>
+            <style>
             </style>
           </tag>
         `

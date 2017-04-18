@@ -7,8 +7,8 @@ const
 describe('output logs', () => {
   ls(EXPECTED_LOGS_DIR).forEach(log => {
     it(log, () => {
-      expect(read(`${EXPECTED_LOGS_DIR}/${log}`))
-        .to.be(read(`${GENERATED_LOGS_DIR}/${log}`))
+      expect(read(`${EXPECTED_LOGS_DIR}/${log}`).trim())
+        .to.be(read(`${GENERATED_LOGS_DIR}/${log}`).trim())
     })
   })
 })
