@@ -159,7 +159,7 @@ describe('API methods', function() {
       to: `${GENERATED_FOLDER}`,
       ext: 'tag',
       compiler: {
-        type: 'typescript'
+        type: 'unkown'
       }
     }).error).to.be.a('string') // error string
   })

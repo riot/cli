@@ -20,7 +20,6 @@ test-cli:
 	$(CLI_PATH) > $(CLI_OUTPUT_FOLDER)/empty.log
 	$(CLI_PATH) --silent > $(CLI_OUTPUT_FOLDER)/silent.log
 	$(CLI_PATH) -h > $(CLI_OUTPUT_FOLDER)/help.log
-	$(CLI_PATH) -v > $(CLI_OUTPUT_FOLDER)/version.log
 	$(CLI_PATH) test/tags/wrong-component.tag --check > $(CLI_OUTPUT_FOLDER)/analyzer-fail.log
 	$(CLI_PATH) test/tags/component.tag --check > $(CLI_OUTPUT_FOLDER)/analyzer-ok.log
 	$(CLI_PATH) test/tags > $(CLI_OUTPUT_FOLDER)/folder-no-file.log
