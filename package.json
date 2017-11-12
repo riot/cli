@@ -14,7 +14,7 @@
   },
   "scripts": {
     "test": "make test",
-    "prepare": "npm i babel pug coffee-script node-sass"
+    "prepare": "npm i babel pug coffee-script node-sass --no-save"
   },
   "repository": {
     "type": "git",
@@ -43,16 +43,12 @@
   "homepage": "https://github.com/riot/cli#readme",
   "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (http://gianlucaguarini.com/)",
   "dependencies": {
-    "babel": "^6.23.0",
     "chalk": "^2.1.0",
     "chokidar": "^1.7.0",
     "co": "^4.6.0",
-    "coffee-script": "^1.12.7",
-    "node-sass": "^4.5.3",
     "optionator": "^0.8.2",
-    "pug": "^2.0.0-rc.4",
     "riot-compiler": "^3.2.4",
-    "rollup": "^0.49.3",
+    "rollup": "^0.51.2",
     "shelljs": "^0.7.8"
   }
 }
