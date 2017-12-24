@@ -195,7 +195,7 @@ describe('API methods', function() {
         expect(test('-e', `${GENERATED_FOLDER}/watch-component.js`)).to.be(true)
         watcher.close()
         done()
-      })
+      }, 150)
     })
   })
 
