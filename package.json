@@ -29,7 +29,7 @@
     "README.md"
   ],
   "devDependencies": {
-    "coveralls": "^2.11.0",
+    "coveralls": "^3.0.0",
     "eslint": "^4.13.1",
     "eslint-config-riot": "^1.0.0",
     "expect.js": "^0.3.1",
