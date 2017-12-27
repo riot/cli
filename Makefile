@@ -38,7 +38,7 @@ test-cli:
 	cat test/tags/component.tag | $(CLI_PATH) --stdin $(STDINOUT_FOLDER)
 
 test-mocha:
-	@ $(ISTANBUL) cover $(MOCHA) -- -R spec test/runner.js --exit
+	@ $(ISTANBUL) cover $(MOCHA) -- -R spec test/runner.js --require co-mocha
 
 test-coveralls:
 	@ RIOT_COV=1 cat ./coverage/lcov.info ./coverage/report-lcov/lcov.info | $(COVERALLS)

@@ -29,6 +29,7 @@
     "README.md"
   ],
   "devDependencies": {
+    "co-mocha": "^1.2.1",
     "coveralls": "^3.0.0",
     "eslint": "^4.13.1",
     "eslint-config-riot": "^1.0.0",

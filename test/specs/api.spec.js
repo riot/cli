@@ -10,32 +10,35 @@ describe('API methods', function() {
   this.timeout(10000)
 
   it('help', function* () {
-    const res = yield cli.help()
-    expect(res).to.be.a('string')
+    expect(yield cli.help()).to.be.a('string')
   })
 
-  it('version', () => {
-    expect(cli.version()).to.be(`
+  it('version', function* () {
+    expect(yield cli.version()).to.be(`
   riot-cli:      ${require('../../package.json').version} - https://github.com/riot/cli
   riot-compiler: ${require('riot-compiler/package.json').version} - https://github.com/riot/compiler
 `)
   })
 
   it('check', function* () {
-    const check = yield cli.check({from: `${TAGS_FOLDER}/wrong-component.tag`})[0]
+    const [check] = yield cli.check({from: `${TAGS_FOLDER}/wrong-component.tag`})
 
     expect(check).to.be.an('object')
     expect(check.errors).to.have.length(2)
-    expect(cli.check({from: `${TAGS_FOLDER}/component.tag`})).to.have.length(0)
-    expect(cli.check({from: `${TAGS_FOLDER}`})[0].file).to.be.a('string')
+    expect(yield cli.check({from: `${TAGS_FOLDER}/component.tag`})).to.have.length(0)
+    expect((yield cli.check({from: `${TAGS_FOLDER}`}))[0].file).to.be.a('string')
   })
 
   it('make with the wrong path should return an error', function* () {
-    const error = yield cli.make({
-      from: 'some/random/path.tag'
-    })
-
-    expect(error).to.be.a('string')
+    try {
+      yield cli.make({
+        from: 'some/random/path.tag'
+      })
+      throw 'force error'
+    } catch (error) {
+      expect(error).to.be.a('string')
+      expect(error).to.match(/does not exist/)
+    }
   })
 
   it('make with the right path should not return any error', function* () {
@@ -76,19 +79,20 @@ describe('API methods', function() {
 
     expect(test('-e', `${GENERATED_FOLDER}/make-components.js`)).to.be(true)
     expect(cat(`${GENERATED_FOLDER}/make-components.js`)).to.match(/require/)
-
   })
 
   it('make using a missing preprocessor should throw an error', function* () {
-    const result = yield cli.make({
-      from: `${TAGS_FOLDER}/component.tag`,
-      compiler: { modular: true, template: 'nope' }
-    })
-
-    expect(result.error)
+    try {
+      yield cli.make({
+        from: `${TAGS_FOLDER}/component.tag`,
+        compiler: { modular: true, template: 'nope' }
+      })
+      throw 'force error'
+    } catch (error) {
+      expect(error)
       .to
       .be('The "nope" html preprocessor was not found. Have you registered it?')
-
+    }
   })
 
   it('make using the --export feature', function* () {
@@ -159,16 +163,20 @@ describe('API methods', function() {
   })
 
   it('check the error messages when the parser was not found', function* () {
-    const error = yield cli.make({
-      from: `${TAGS_FOLDER}`,
-      to: `${GENERATED_FOLDER}`,
-      ext: 'tag',
-      compiler: {
-        type: 'unknown'
-      }
-    })
-
-    expect(error).to.be.a('string') // error string
+    try {
+      yield cli.make({
+        from: `${TAGS_FOLDER}`,
+        to: `${GENERATED_FOLDER}`,
+        ext: 'tag',
+        compiler: {
+          type: 'unknown'
+        }
+      })
+      throw 'force error'
+    } catch (error) {
+      expect(error).to.be.a('string') // error string
+      expect(error).to.match(/preprocessor was not found/)
+    }
   })
 
   it('watch folder', function (done) {
