@@ -10,6 +10,7 @@ Options:
   -m, --modular        AMD and CommonJS
   -s, --silent         Silence build output
   --whitespace         Preserve newlines and whitepace
+  --sourcemap          Add inline sourcemaps to the generated files
   --check              Check the syntax errors on a single tag
   --colors             Turn on colorized output
   --expr               Run expressions through parser defined with --type

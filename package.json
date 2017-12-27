@@ -14,7 +14,7 @@
   },
   "scripts": {
     "test": "make test",
-    "prepare": "npm i babel pug coffee-script node-sass --no-save"
+    "prepare": "npm i babel pug coffeescript node-sass --no-save"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,8 @@
     "eslint-config-riot": "^1.0.0",
     "expect.js": "^0.3.1",
     "istanbul": "^0.4.5",
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "shelljs": "^0.7.8"
   },
   "license": "MIT",
   "bugs": {
@@ -48,7 +49,6 @@
     "co": "^4.6.0",
     "optionator": "^0.8.2",
     "riot-compiler": "^3.4.0",
-    "rollup": "^0.52.1",
-    "shelljs": "^0.7.8"
+    "rollup": "^0.52.1"
   }
 }

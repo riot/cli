@@ -6,6 +6,7 @@ COVERALLS = ./node_modules/coveralls/bin/coveralls.js
 GENERATED_FOLDER = test/generated
 STDINOUT_FOLDER = $(GENERATED_FOLDER)/stdinout
 CLI_OUTPUT_FOLDER = $(GENERATED_FOLDER)/logs
+CLI_PATH_DEBUG = node --inspect --debug-brk ./lib/index.js
 CLI_PATH = ./lib/index.js
 
 test: eslint test-cli test-mocha
