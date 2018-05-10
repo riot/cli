@@ -1,5 +1,8 @@
 # riot-cli
 
+### v4.0.2
+- Update the `riot-compiler` using the latest version
+
 ### v4.0.1
 - Fix #30
 
