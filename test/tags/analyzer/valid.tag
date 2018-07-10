@@ -1,5 +1,3 @@
-var riot = require('riot')
-
 <valid-tag>
   <h1>{ title }</h1>
   <p>{ message }</p>
