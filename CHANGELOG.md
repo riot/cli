@@ -1,5 +1,8 @@
 # riot-cli
 
+### v4.0.2
+- avoid to set the `global.isSilent` flag to true if the cli will be imported via node
+
 ### v4.0.1
 - Fix #30
 
