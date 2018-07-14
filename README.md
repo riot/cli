@@ -32,5 +32,5 @@ But it's also available as standalone package:
 [coverage-image]:https://img.shields.io/coveralls/riot/cli/master.svg?style=flat-square
 [coverage-url]:https://coveralls.io/r/riot/cli/?branch=master
 
-[codeclimate-image]:https://img.shields.io/codeclimate/github/riot/cli.svg?style=flat-square
+[codeclimate-image]:https://api.codeclimate.com/v1/badges/1409ace7dbefdb5da35a/maintainability
 [codeclimate-url]:https://codeclimate.com/github/riot/cli
