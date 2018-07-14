@@ -4,6 +4,9 @@
 - Update the `riot-compiler` using the latest version
 - Update to `chokidar@2`
 
+### v4.0.2
+- avoid to set the `global.isSilent` flag to true if the cli will be imported via node
+
 ### v4.0.1
 - Fix #30
 
