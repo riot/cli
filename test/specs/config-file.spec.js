@@ -10,7 +10,7 @@ const
 
 describe('External config file', function() {
   it('generate the tags using custom parsers in the config file', function(done) {
-    cli._cli([
+    cli.cli([
       '--config',
       'test/fixtures/config-parsers'
     ])
@@ -27,7 +27,7 @@ describe('External config file', function() {
   })
 
   it('generate the tags using custom pug parser', function(done) {
-    cli._cli([
+    cli.cli([
       '--config',
       'test/fixtures/config-parsers-pug'
     ])
