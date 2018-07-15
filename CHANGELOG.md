@@ -1,7 +1,10 @@
 # riot-cli
 
+### v4.1.0
+- Add: the `esm` option https://github.com/riot/cli/pull/32
+
 ### v4.0.2
-- avoid to set the `global.isSilent` flag to true if the cli will be imported via node
+- Fix: avoid to set the `global.isSilent` flag to true if the cli will be imported via node
 
 ### v4.0.1
 - Fix #30
