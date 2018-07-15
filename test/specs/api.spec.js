@@ -81,6 +81,32 @@ describe('API methods', function() {
     expect(cat(`${GENERATED_FOLDER}/make-components.js`)).to.match(/require/)
   })
 
+  it('make using the esm flag on a single tag must return compliant esm module code', function* () {
+    yield cli.make({
+      from: `${TAGS_FOLDER}/component.tag`,
+      to: `${GENERATED_FOLDER}/make-esm-component.js`,
+      compiler: { esm: true }
+    })
+
+    expect(test('-e', `${GENERATED_FOLDER}/make-esm-component.js`)).to.be(true)
+    const output = cat(`${GENERATED_FOLDER}/make-esm-component.js`).toString()
+    expect(output).to.have.string('import riot from \'riot\'')
+    expect(output).to.not.have.string('require(\'riot\')')
+  })
+
+  it('make using the esm flag on multiple tags must return compliant esm module code', function* () {
+    yield cli.make({
+      from: `${TAGS_FOLDER}`,
+      to: `${GENERATED_FOLDER}/make-esm-components.js`,
+      compiler: { esm: true }
+    })
+
+    expect(test('-e', `${GENERATED_FOLDER}/make-esm-components.js`)).to.be(true)
+    const output = cat(`${GENERATED_FOLDER}/make-esm-components.js`).toString()
+    expect(output).to.have.string('import riot from \'riot\'')
+    expect(output).to.not.have.string('require(\'riot\')')
+  })
+
   it('make using a missing preprocessor should throw an error', function* () {
     try {
       yield cli.make({
@@ -90,8 +116,8 @@ describe('API methods', function() {
       throw 'force error'
     } catch (error) {
       expect(error)
-      .to
-      .be('The "nope" html preprocessor was not found. Have you registered it?')
+        .to
+        .be('The "nope" html preprocessor was not found. Have you registered it?')
     }
   })
 
@@ -181,19 +207,19 @@ describe('API methods', function() {
 
   it('watch folder', function (done) {
     cli.watch({from: TAGS_FOLDER})
-    .then(watcher => {
-      watcher.on('ready', () => {
-        cp(`${TAGS_FOLDER}/component.tag`, `${TAGS_FOLDER}/component-copy.tag`)
-        watcher.add(`${TAGS_FOLDER}/component-copy.tag`)
-        // hopefully this tag gets compiled after 3 secons
-        setTimeout(() => {
-          rm(`${TAGS_FOLDER}/component-copy.tag`)
-          expect(test('-e', `${TAGS_FOLDER}/component-copy.js`)).to.be(true)
-          watcher.close()
-          done()
-        }, 3000)
+      .then(watcher => {
+        watcher.on('ready', () => {
+          cp(`${TAGS_FOLDER}/component.tag`, `${TAGS_FOLDER}/component-copy.tag`)
+          watcher.add(`${TAGS_FOLDER}/component-copy.tag`)
+          // hopefully this tag gets compiled after 3 secons
+          setTimeout(() => {
+            rm(`${TAGS_FOLDER}/component-copy.tag`)
+            expect(test('-e', `${TAGS_FOLDER}/component-copy.js`)).to.be(true)
+            watcher.close()
+            done()
+          }, 3000)
+        })
       })
-    })
   })
 
   it('watch file', function (done) {

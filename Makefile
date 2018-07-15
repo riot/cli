@@ -1,6 +1,6 @@
 # Command line paths
 ISTANBUL = ./node_modules/.bin/istanbul
-ESLINT = ./node_modules/eslint/bin/eslint.js
+ESLINT = ./node_modules/.bin/eslint
 MOCHA = ./node_modules/.bin/_mocha
 COVERALLS = ./node_modules/coveralls/bin/coveralls.js
 GENERATED_FOLDER = test/generated

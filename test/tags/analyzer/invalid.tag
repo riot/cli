@@ -1,4 +1,4 @@
-var riot = require('riot')
+var moment = require('moment')
 
 <valid-tag>
   <h1>{ title }</h1>
