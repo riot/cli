@@ -8,7 +8,7 @@ Options:
   -w, --watch          Watch for changes
   -c, --compact        Minify </p> <p> to </p><p>
   -m, --modular        AMD and CommonJS
-  -M, --es6Modular     es6 module
+  --esm                es6 module
   -s, --silent         Silence build output
   --whitespace         Preserve newlines and whitepace
   --sourcemap          Add inline sourcemaps to the generated files

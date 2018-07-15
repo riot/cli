@@ -81,27 +81,27 @@ describe('API methods', function() {
     expect(cat(`${GENERATED_FOLDER}/make-components.js`)).to.match(/require/)
   })
 
-  it('make using the es6Modular flag on a single tag must return compliant es6 module code', function* () {
+  it('make using the esm flag on a single tag must return compliant esm module code', function* () {
     yield cli.make({
       from: `${TAGS_FOLDER}/component.tag`,
-      to: `${GENERATED_FOLDER}/make-es6-component.js`,
-      compiler: { es6Modular: true }
+      to: `${GENERATED_FOLDER}/make-esm-component.js`,
+      compiler: { esm: true }
     })
 
-    expect(test('-e', `${GENERATED_FOLDER}/make-es6-component.js`)).to.be(true)
-    expect(cat(`${GENERATED_FOLDER}/make-es6-component.js`)).to.match(/import/)
+    expect(test('-e', `${GENERATED_FOLDER}/make-esm-component.js`)).to.be(true)
+    expect(cat(`${GENERATED_FOLDER}/make-esm-component.js`)).to.match(/import/)
 
   })
 
-  it('make using the es6Modular flag on multiple tags must return compliant es6 module code', function* () {
+  it('make using the esm flag on multiple tags must return compliant esm module code', function* () {
     yield cli.make({
       from: `${TAGS_FOLDER}`,
-      to: `${GENERATED_FOLDER}/make-es6-components.js`,
-      compiler: { es6Modular: true }
+      to: `${GENERATED_FOLDER}/make-esm-components.js`,
+      compiler: { esm: true }
     })
 
-    expect(test('-e', `${GENERATED_FOLDER}/make-es6-components.js`)).to.be(true)
-    expect(cat(`${GENERATED_FOLDER}/make-es6-components.js`)).to.match(/import/)
+    expect(test('-e', `${GENERATED_FOLDER}/make-esm-components.js`)).to.be(true)
+    expect(cat(`${GENERATED_FOLDER}/make-esm-components.js`)).to.match(/import/)
   })
 
   it('make using a missing preprocessor should throw an error', function* () {
