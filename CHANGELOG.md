@@ -1,5 +1,8 @@
 # riot-cli
 
+### v4.1.1
+- Fix: `watch` option on Windows https://github.com/riot/cli/issues/34
+
 ### v4.1.0
 - Add: the `esm` option https://github.com/riot/cli/pull/32
 
