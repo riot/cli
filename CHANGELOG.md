@@ -1,5 +1,8 @@
 # riot-cli
 
+### v5.1.2
+- Add: the new `esm` option to the help text https://github.com/riot/cli/pull/33
+
 ### v5.1.1
 - Fix: `watch` option on Windows https://github.com/riot/cli/issues/34
 
