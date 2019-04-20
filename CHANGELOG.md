@@ -1,5 +1,9 @@
 # riot-cli
 
+# 4.0.0-alpha.4
+
+- Fix missing `glob` dependency
+
 # 4.0.0-alpha.3
 
 - Fix missing dependency
