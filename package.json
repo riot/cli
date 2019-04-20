@@ -1,6 +1,6 @@
 {
   "name": "@riotjs/cli",
-  "version": "4.0.0-alpha.2",
+  "version": "4.0.0-alpha.3",
   "description": "Riot command line utility",
   "main": "index.js",
   "engines": {
@@ -46,6 +46,7 @@
   "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (http://gianlucaguarini.com/)",
   "dependencies": {
     "@riotjs/compiler": "^4.0.0",
+    "chalk": "^2.4.2",
     "chokidar": "^2.1.5",
     "cumpa": "^1.0.1",
     "esm": "^3.2.22",
