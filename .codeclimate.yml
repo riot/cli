@@ -4,5 +4,7 @@ engines:
 
 ratings:
   paths:
-  - "index.js"
+    - "src/**.js"
 
+exclude_patterns:
+  - "test/**"

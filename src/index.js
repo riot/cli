@@ -1,9 +1,7 @@
 import { basename, dirname, extname, join, resolve } from 'path'
 import chalk from 'chalk'
 import compose from 'cumpa'
-import curry from 'curri'
 import glob from 'glob'
-import merge from 'lodash.merge'
 import minimist from 'minimist'
 import pkg from '../package.json'
 import riot  from 'rollup-plugin-riot'
@@ -11,25 +9,17 @@ import { rollup } from 'rollup'
 
 const log = console.log // eslint-disable-line
 const logError = compose(log, chalk.red)
-
-const defaults = {
-  plugins: [],
-  ext: 'riot',
-  dir: false,
-  output: {
-    sourcemap: false,
-    format: 'esm'
-  }
-}
+const info = compose(log, chalk.cyan)
 
 export async function compile(options) {
   const bundle = await rollup({
     input: options.input,
     plugins: [
-      ...options.plugins,
       riot(options.riot)
     ]
   })
+
+  info(`${options.input} -> ${options.output.file}`)
 
   return await bundle.write(options.output)
 }
@@ -38,14 +28,14 @@ export function mapOptions(input, index, options) {
   const componentName = basename(input, extname(input))
   const ext = extname(input).replace('.', '')
 
+
   return {
     input,
     sourcemap: options.sourcemap,
     plugins: options.plugins,
     output: {
-      ...options.output,
-      format: options.format || options.output.format,
-      sourcemap: options.sourcemap || options.output.sourcemap,
+      format: options.format,
+      sourcemap: options.sourcemap,
       name: componentName,
       file: join(generateOutputPath(options, index, input, componentName))
     },
@@ -56,7 +46,7 @@ export function mapOptions(input, index, options) {
 }
 
 export function generateOutputPath(options, index, input, componentName) {
-  const fileOutput = options['--'][index] || options['--'][0]
+  const fileOutput = options['output'][index] || options['output'][0]
   const generatedOutputFileName = `${componentName}.js`
   const root = dirname(input)
 
@@ -72,16 +62,16 @@ export function generateOutputPath(options, index, input, componentName) {
 export function help() {
   return `
   Build a single .riot file:
-    riot foo.riot                 To a same named file (foo.js)
-    riot foo.riot -- bar.js       To a different named file (bar.js)
-    riot foo.riot -- bar/foo.js   To a different dir (bar/foo.js)
+    riot --input foo.riot                 To a same named file (foo.js)
+    riot --input foo.riot --output bar.js       To a different named file (bar.js)
+    riot --input foo.riot --output bar/foo.js   To a different dir (bar/foo.js)
   Build all .riot files in a directory:
-    riot --dir foo/bar            To a same directory (foo/bar/**/*.js)
-    riot --dir foo/bar -- baz     To a different directory (baz/**/*.js)
+    riot --input-dir foo/bar                  To a same directory (foo/bar/**/*.js)
+    riot --input-dir foo/bar --output baz     To a different directory (baz/**/*.js)
 
   Examples for options:
-    riot --format umd foo.riot
-    riot --sourcemap inline foo.riot
+    riot --format umd -i foo.riot
+    riot --sourcemap inline -i foo.riot
 
   Version ${pkg.version}
 `
@@ -110,13 +100,12 @@ export async function main(options) {
     return log(pkg.version)
   case Boolean(options.config):
     return await compose(compile, loadConfig)(options.config)
-  case Boolean(options.dir):
+  case Boolean(options['input-dir']):
     return await Promise.all(
-      glob.sync(join(options.dir, '**', `*.${options.ext}`),{}).map(compileFile))
-  case options._.length > 0:
-    return await Promise.all(
-      options._.map(compileFile)
+      glob.sync(join(options['input-dir'], '**', `*.${options.ext}`),{}).map(compileFile)
     )
+  case options.input.length > 0:
+    return await Promise.all(options._.map(compileFile))
   default:
     return compose(log, help)()
   }
@@ -125,15 +114,33 @@ export async function main(options) {
 export default async function run(args) {
   compose(
     main,
-    curry((a, b) => merge(a, b))(defaults),
     minimist
   )(args, {
-    '--': true,
+    string: ['ext', 'format', 'input-dir', 'config', 'sourcemap'],
+    boolean: ['version', 'help'],
+    array: ['input', 'output'],
+    default: {
+      ext: 'riot',
+      dir: '',
+      input: [],
+      output: [],
+      sourcemap: false,
+      config: '',
+      format: 'esm'
+    },
     alias: {
+      e: 'ext',
+      i: 'input',
+      o: 'output',
+      s: 'sourcemap',
       c: 'config',
       v: 'version',
       f: 'format',
-      d: 'dir'
+      d: 'input-dir'
+    },
+    unknown(...args) {
+      logError('Unknown param', ...args)
+      process.exit(1)
     }
   })
 }

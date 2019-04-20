@@ -42,9 +42,7 @@
   "dependencies": {
     "@riotjs/compiler": "^4.0.0",
     "cumpa": "^1.0.1",
-    "curri": "^1.0.1",
     "esm": "^3.2.22",
-    "lodash.merge": "^4.6.1",
     "minimist": "^1.2.0",
     "rollup": "^1.10.1",
     "rollup-plugin-riot": "^4.0.0"
