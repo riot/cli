@@ -11,11 +11,16 @@ Command line tool to precompile riot tags
 
 ## Important
 
-If you are using Riot.js < 4.0.0 please check the [v3 branch](https://github.com/riot/cli/tree/legacy)
+If you are using Riot.js < 4.0.0 please check the [legacy branch](https://github.com/riot/cli/tree/legacy)
 
 ## Installation
 
-`$ npm install @riotjs/cli -g`
+`npm install @riotjs/cli -g`
+
+
+## Usage
+
+`riot --help`
 
 [travis-image]:https://img.shields.io/travis/riot/cli.svg?style=flat-square
 [travis-url]:https://travis-ci.org/riot/cli
