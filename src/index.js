@@ -59,6 +59,7 @@ export function loadConfig(options) {
   if (!options.config) return options
 
   const src = options.config
+  /* istanbul ignore next */
   const file = resolve(typeof src === 'string' ? src : 'riot.config')
 
   try {

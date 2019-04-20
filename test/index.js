@@ -44,4 +44,8 @@ describe('riot cli', () => {
   it('load config file', async() => {
     expect(await cli([ '-c', 'test/riot.config', 'test/fixtures'])).to.be.ok
   })
+
+  it('load config file with extension', async() => {
+    expect(await cli([ '-c', 'test/riot.config.js', 'test/fixtures'])).to.be.ok
+  })
 })
