@@ -26,7 +26,7 @@ If you are using Riot.js < 4.0.0 please check the [legacy branch](https://github
 [travis-url]:https://travis-ci.org/riot/cli
 
 [license-image]:http://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
-[license-url]:LICENSE.txt
+[license-url]:LICENSE
 
 [npm-version-image]:http://img.shields.io/npm/v/@riotjs/cli.svg?style=flat-square
 [npm-downloads-image]:http://img.shields.io/npm/dm/@riotjs/cli.svg?style=flat-square
