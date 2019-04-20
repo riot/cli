@@ -7,4 +7,4 @@ const cli = require('./src/index.js')
 if (module.parent) {
   module.exports = cli
 /* istanbul ignore next */
-} else cli.default(process.argv.slice(2))
+} else cli.default(process.argv)

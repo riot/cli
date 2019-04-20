@@ -51,17 +51,10 @@ out/
 # --------------------
 node_modules
 npm-debug.log
-bower_components
+.nyc_output
 coverage
 # these files are generated anyway
-test/generated/*
-test/tags/*.js
-test/tags/**/*.js
-test/tags/export/*.html
-test/tags/export/*.css
-test/tags/export/*.js
-!test/tags/export/style-export-sass.html
-test/tags/analyzer/*.js
+test/fixtures/*.js
 
 !.gitmodules
 !.travis.yml
