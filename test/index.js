@@ -21,6 +21,12 @@ describe('riot cli', () => {
     expect(await cli(['test/fixtures/my-component.riot'])).to.be.ok
   })
 
+  it('can watch a component', async() => {
+    const [watcher] = await cli(['-w', 'test/fixtures/my-component.riot'])
+
+    expect(() => watcher.close()).to.not.throw()
+  })
+
   it('can compile to a js file', async() => {
     expect(await cli(['test/fixtures/my-component.riot', '-o', 'test/fixtures/foo.js'])).to.be.ok
   })

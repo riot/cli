@@ -27,8 +27,8 @@ Version ${pkg.version}
       option: 'format',
       default: 'esm',
       alias: 'f',
-      description: 'Specify output format',
       enum: ['amd', 'cjs', 'esm', 'iife', 'umd'],
+      description: 'Specify output format',
       type: 'String'
     }, {
       option: 'extension',
@@ -39,9 +39,9 @@ Version ${pkg.version}
     }, {
       option: 'sourcemap',
       default: false,
-      description: 'Add inline or a file sourcemaps to the generated files',
       enum: ['inline', 'file'],
       alias: 's',
+      description: 'Add inline or a file sourcemaps to the generated files',
       type: 'String'
     }, {
       option: 'config',
@@ -49,6 +49,12 @@ Version ${pkg.version}
       alias: 'c',
       description: 'Specify the path to a configuration file to compile your tags',
       type: 'String'
+    }, {
+      option: 'watch',
+      default: false,
+      alias: 'w',
+      description: 'Watch for changes',
+      type: 'Boolean'
     }, {
       option: 'version',
       default: '',
@@ -58,8 +64,8 @@ Version ${pkg.version}
     }, {
       option: 'help',
       alias: 'h',
-      type: 'Boolean',
-      description: 'You\'re reading it'
+      description: 'You\'re reading it',
+      type: 'Boolean'
     }
   ]
 }

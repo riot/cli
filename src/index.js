@@ -1,33 +1,24 @@
 import { basename, dirname, extname, join, resolve } from 'path'
-import chalk from 'chalk'
+import { log, logError } from './logger'
+import compile from './compile'
 import compose from 'cumpa'
 import glob from 'glob'
+import help from './help'
 import optionatorFactory from 'optionator'
 import options from './options'
 import pkg from '../package.json'
-import riot  from 'rollup-plugin-riot'
-import { rollup } from 'rollup'
 import { statSync } from 'fs'
+import watch from './watch'
 
 const optionator = optionatorFactory(options)
-const log = console.log // eslint-disable-line
-const logError = compose(log, chalk.red)
-const info = compose(log, chalk.cyan)
 const isJsFilePath = path => path.slice(-3) === '.js'
 
-export async function compile(options) {
-  const bundle = await rollup({
-    input: options.input,
-    plugins: [
-      riot(options.riot)
-    ]
-  })
-
-  info(`${options.input} -> ${options.output.file}`)
-
-  return await bundle.write(options.output)
-}
-
+/**
+ * Map the user options to valid rollup options
+ * @param   {string} input - source file
+ * @param   {Object} options - user options
+ * @returns {Object} RollupOptions object
+ */
 export function mapOptions(input, options) {
   const componentName = basename(input, extname(input))
   const ext = extname(input).replace('.', '')
@@ -35,6 +26,7 @@ export function mapOptions(input, options) {
   return {
     input,
     sourcemap: options.sourcemap,
+    watch: options.watch,
     output: {
       format: options.format,
       sourcemap: options.sourcemap,
@@ -45,6 +37,13 @@ export function mapOptions(input, options) {
   }
 }
 
+/**
+ * Generate the output where the javascript files will be created
+ * @param   {Object} options - user options
+ * @param   {string} input - current source path
+ * @param   {string} componentName - component name inferred from the file name
+ * @returns {string} path where the js file will be generated
+ */
 export function generateOutputPath(options, input, componentName) {
   const fileOutput = options['output'] || process.cwd()
   const generatedOutputFileName = `${componentName}.js`
@@ -55,6 +54,11 @@ export function generateOutputPath(options, input, componentName) {
     join(fileOutput, root, generatedOutputFileName)
 }
 
+/**
+ * Load the riot.config.js file
+ * @param   {Object} options - user options
+ * @returns {Object} user options merged with the riot.config.js export
+ */
 export function loadConfig(options) {
   if (!options.config) return options
 
@@ -73,9 +77,21 @@ export function loadConfig(options) {
   }
 }
 
+/**
+ * Get the input files depending on the user input
+ * @param   {Object} options - user options
+ * @param   {string} input - input path
+ * @returns {Array<RollytOutput>} generated files
+ */
 export async function mapInput(options, input) {
   const stat = statSync(input)
-  const compileFile = input => compile(mapOptions(input, options))
+  const compileFile = input => {
+    const opts = mapOptions(input, options)
+
+    if (options.watch) return watch(opts)
+
+    return compile(opts)
+  }
 
   if (stat.isDirectory()) {
     return await Promise.all(
@@ -86,23 +102,20 @@ export async function mapInput(options, input) {
   return await compileFile(input)
 }
 
-export function help() {
-  const help = optionator.generateHelp()
-  log(help)
-  return help
-}
-
+/**
+ * Parse the user options and dispatch the cli tasks
+ * @param   {Object} options user options
+ * @returns {*} task output
+ */
 export async function main(options) {
   switch (true) {
   case options.version:
     log(pkg.version)
     return pkg.version
   case options._.length > 0:
-    return await Promise.all(
-      options._.map(input => mapInput(options, input))
-    )
+    return await Promise.all(options._.map(input => mapInput(options, input)))
   default:
-    return help()
+    return help(optionator)
   }
 }
 

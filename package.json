@@ -46,6 +46,7 @@
   "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (http://gianlucaguarini.com/)",
   "dependencies": {
     "@riotjs/compiler": "^4.0.0",
+    "chokidar": "^2.1.5",
     "cumpa": "^1.0.1",
     "esm": "^3.2.22",
     "optionator": "^0.8.2",
