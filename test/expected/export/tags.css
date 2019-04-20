@@ -1,3 +1,0 @@
-html-export,[data-is="html-export"]{ color: red; } html-export p,[data-is="html-export"] p{ font-size: 11px; }
-js-export,[data-is="js-export"]{ color: red; } js-export p,[data-is="js-export"] p{ font-size: 11px; }
-style-export,[data-is="style-export"]{ color: red; } style-export p,[data-is="style-export"] p{ font-size: 11px; }

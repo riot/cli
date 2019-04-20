@@ -1,3 +1,12 @@
-{
-  "extends": "eslint-config-riot"
-}
+extends: eslint-config-riot
+
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: 'module'
+
+globals:
+  sinon: true
+  chai: true
+
+rules:
+  fp/no-rest-parameters: false

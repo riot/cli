@@ -1,3 +1,0 @@
-<component-foo>
-  <p>{ opts.msg }</p>
-</component-foo>

@@ -1,20 +1,19 @@
 {
-  "name": "riot-cli",
-  "version": "4.1.2",
+  "name": "@riotjs/cli",
+  "version": "4.0.0-alpha",
   "description": "Riot command line utility",
-  "main": "lib/index.js",
+  "main": "index.js",
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=10.0.0"
   },
   "directories": {
-    "lib": "lib"
+    "src": "src"
   },
   "bin": {
-    "riot": "lib/index.js"
+    "riot": "index.js"
   },
   "scripts": {
-    "test": "make test",
-    "prepare": "npm i babel pug coffeescript node-sass --no-save"
+    "test": "mocha -r esm test"
   },
   "repository": {
     "type": "git",
@@ -25,19 +24,14 @@
     "cli"
   ],
   "files": [
-    "lib",
+    "src",
     "README.md"
   ],
   "devDependencies": {
-    "chai": "^4.1.2",
-    "co-mocha": "^1.2.2",
-    "coveralls": "^3.0.0",
-    "eslint": "^4.19.1",
-    "eslint-config-riot": "^1.0.0",
-    "expect.js": "^0.3.1",
-    "istanbul": "^0.4.5",
-    "mocha": "^5.0.5",
-    "shelljs": "^0.8.2"
+    "eslint": "^5.16.0",
+    "eslint-config-riot": "^2.0.0",
+    "glob": "^7.1.3",
+    "mocha": "^6.1.4"
   },
   "license": "MIT",
   "bugs": {
@@ -46,11 +40,13 @@
   "homepage": "https://github.com/riot/cli#readme",
   "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (http://gianlucaguarini.com/)",
   "dependencies": {
-    "chalk": "^2.3.2",
-    "chokidar": "^2.0.3",
-    "co": "^4.6.0",
-    "optionator": "^0.8.2",
-    "riot-compiler": "^3.5.1",
-    "rollup": "^0.57.1"
+    "@riotjs/compiler": "^4.0.0",
+    "cumpa": "^1.0.1",
+    "curri": "^1.0.1",
+    "esm": "^3.2.22",
+    "lodash.merge": "^4.6.1",
+    "minimist": "^1.2.0",
+    "rollup": "^1.10.1",
+    "rollup-plugin-riot": "^4.0.0"
   }
 }
