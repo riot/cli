@@ -1,4 +1,10 @@
-# riot-cli
+# @riotjs/cli
+
+# 4.0.0
+
+- Stable version
+- Fix relative paths output for the glob compiling
+- Add alias exports for the `registerPreprocessor, registerPostprocessor` `@riotjs/compiler`
 
 # 4.0.0-alpha.4
 
