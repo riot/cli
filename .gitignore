@@ -53,6 +53,7 @@ node_modules
 npm-debug.log
 .nyc_output
 coverage
+generated
 # these files are generated anyway
 test/fixtures/*.js
 

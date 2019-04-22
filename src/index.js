@@ -1,4 +1,4 @@
-import { basename, dirname, extname, join, resolve } from 'path'
+import { basename, dirname, extname, join, relative, resolve } from 'path'
 import { log, logError } from './logger'
 import compile from './compile'
 import compose from 'cumpa'
@@ -15,11 +15,12 @@ const isJsFilePath = path => path.slice(-3) === '.js'
 
 /**
  * Map the user options to valid rollup options
- * @param   {string} input - source file
+ * @param   {string} input - source file path
+ * @param   {string} userInputPath - path provided by the user
  * @param   {Object} options - user options
  * @returns {Object} RollupOptions object
  */
-export function mapOptions(input, options) {
+export function mapOptions(input, userInputPath, options) {
   const componentName = basename(input, extname(input))
   const ext = extname(input).replace('.', '')
 
@@ -31,7 +32,7 @@ export function mapOptions(input, options) {
       format: options.format,
       sourcemap: options.sourcemap,
       name: componentName,
-      file: join(generateOutputPath(options, input, componentName))
+      file: join(generateOutputPath(options, input, userInputPath, componentName))
     },
     riot: { ...options.riot, ext }
   }
@@ -41,13 +42,14 @@ export function mapOptions(input, options) {
  * Generate the output where the javascript files will be created
  * @param   {Object} options - user options
  * @param   {string} input - current source path
+ * @param   {string} userInputPath - path provided by the user
  * @param   {string} componentName - component name inferred from the file name
  * @returns {string} path where the js file will be generated
  */
-export function generateOutputPath(options, input, componentName) {
+export function generateOutputPath(options, input, userInputPath, componentName) {
   const fileOutput = options['output'] || process.cwd()
   const generatedOutputFileName = `${componentName}.js`
-  const root = dirname(input)
+  const root = userInputPath !== input ? relative(userInputPath, dirname(input)) : dirname(input)
 
   return isJsFilePath(fileOutput) ?
     fileOutput :
@@ -78,15 +80,15 @@ export function loadConfig(options) {
 }
 
 /**
- * Get the input files depending on the user input
+ * Generate the output javascript files
  * @param   {Object} options - user options
  * @param   {string} input - input path
  * @returns {Array<RollytOutput>} generated files
  */
-export async function mapInput(options, input) {
+export async function generateOutput(options, input) {
   const stat = statSync(input)
-  const compileFile = input => {
-    const opts = mapOptions(input, options)
+  const compileFile = filePath => {
+    const opts = mapOptions(filePath, input, options)
 
     if (options.watch) return watch(opts)
 
@@ -113,11 +115,14 @@ export async function main(options) {
     log(pkg.version)
     return pkg.version
   case options._.length > 0:
-    return await Promise.all(options._.map(input => mapInput(options, input)))
+    return await Promise.all(options._.map(input => generateOutput(options, input)))
   default:
     return help(optionator)
   }
 }
+
+// export compiler extension functions
+export {registerPreprocessor, registerPostprocessor} from '@riotjs/compiler'
 
 export default async function run(args) {
   return compose(

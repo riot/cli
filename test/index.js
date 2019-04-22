@@ -1,6 +1,7 @@
 import { expect } from 'chai'
 import pkg from '../package.json'
 import run from '../src'
+import { statSync } from 'fs'
 
 const cli = (options) => run(['node', 'riot', ...options])
 
@@ -28,19 +29,20 @@ describe('riot cli', () => {
   })
 
   it('can compile to a js file', async() => {
-    expect(await cli(['test/fixtures/my-component.riot', '-o', 'test/fixtures/foo.js'])).to.be.ok
+    expect(await cli(['test/fixtures/my-component.riot', '-o', 'test/generated/foo.js'])).to.be.ok
   })
 
   it('can compile from a folder', async() => {
-    expect(await cli(['test/fixtures'])).to.be.ok
+    expect(await cli(['test', '-o', 'test/generated'])).to.be.ok
+    expect(statSync('test/generated/fixtures').isDirectory()).to.be.ok
   })
 
   it('can compile files having a different extension', async() => {
-    expect(await cli([ '--extension', 'html', 'test/fixtures'])).to.be.ok
+    expect(await cli([ '--extension', 'html', '-o', 'test/generated', 'test/fixtures'])).to.be.ok
   })
 
   it('can compile files having a different extension', async() => {
-    expect(await cli([ '--extension', 'html', 'test/fixtures'])).to.be.ok
+    expect(await cli([ '--extension', 'html', '-o', 'test/generated', 'test/fixtures'])).to.be.ok
   })
 
   it('throw in case of missing config file', done => {
