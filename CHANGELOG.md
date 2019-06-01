@@ -1,5 +1,9 @@
 # @riotjs/cli
 
+# 4.0.1
+
+- Update @riotjs/compiler, chokidar and other dependencies
+
 # 4.0.0
 
 - Stable version
