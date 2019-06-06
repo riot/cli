@@ -22,7 +22,6 @@ const isJsFilePath = path => path.slice(-3) === '.js'
  */
 export function mapOptions(input, userInputPath, options) {
   const componentName = basename(input, extname(input))
-  const ext = extname(input).replace('.', '')
 
   return {
     input,
@@ -34,7 +33,7 @@ export function mapOptions(input, userInputPath, options) {
       name: componentName,
       file: join(generateOutputPath(options, input, userInputPath, componentName))
     },
-    riot: { ...options.riot, ext }
+    riot: { ...options.riot, ext: options.extension }
   }
 }
 
