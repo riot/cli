@@ -31,7 +31,7 @@
   ],
   "devDependencies": {
     "chai": "^4.2.0",
-    "coveralls": "^3.0.3",
+    "coveralls": "^3.0.4",
     "eslint": "^5.16.0",
     "eslint-config-riot": "^2.0.0",
     "mocha": "^6.1.4",
@@ -44,14 +44,14 @@
   "homepage": "https://github.com/riot/cli#readme",
   "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (http://gianlucaguarini.com/)",
   "dependencies": {
-    "@riotjs/compiler": "^4.2.4",
+    "@riotjs/compiler": "^4.2.6",
     "chalk": "^2.4.2",
-    "chokidar": "^3.0.0",
+    "chokidar": "^3.0.1",
     "cumpa": "^1.0.1",
     "esm": "^3.2.25",
     "glob": "^7.1.4",
     "optionator": "^0.8.2",
-    "rollup": "^1.13.1",
+    "rollup": "^1.14.3",
     "rollup-plugin-riot": "^4.0.0"
   }
 }

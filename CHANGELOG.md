@@ -1,5 +1,8 @@
 # @riotjs/cli
 
+# 4.0.2
+- Fix riot files extension detection
+
 # 4.0.1
 
 - Update @riotjs/compiler, chokidar and other dependencies
