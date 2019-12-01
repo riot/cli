@@ -127,6 +127,6 @@ export default async function run(args) {
   return compose(
     main,
     loadConfig,
-    optionator.parseArgv,
+    optionator.parseArgv
   )(args)
 }
