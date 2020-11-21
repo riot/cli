@@ -15,7 +15,7 @@
   "scripts": {
     "cov": "nyc report --reporter=text-lcov | coveralls",
     "cov-html": "nyc report --reporter=html",
-    "test": "eslint src && nyc --require esm mocha test/index.js"
+    "test": "eslint src && nyc --require esm mocha --exit test/index.js"
   },
   "repository": {
     "type": "git",
