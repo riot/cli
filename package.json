@@ -2,19 +2,18 @@
   "name": "@riotjs/cli",
   "version": "5.0.2",
   "description": "Riot command line utility",
-  "main": "index.js",
+  "main": "cli.js",
   "engines": {
     "node": ">=10.0.0"
   },
-  "directories": {
-    "src": "src"
-  },
   "bin": {
-    "riot": "index.js"
+    "riot": "cli.js"
   },
   "scripts": {
     "cov": "nyc report --reporter=text-lcov | coveralls",
     "cov-html": "nyc report --reporter=html",
+    "prepublishOnly": "npm run build",
+    "build": "rollup -c",
     "test": "eslint src && nyc --require esm mocha --exit test/index.js"
   },
   "repository": {
@@ -30,10 +29,12 @@
     "README.md"
   ],
   "devDependencies": {
+    "@rollup/plugin-json": "^4.1.0",
     "chai": "^4.2.0",
     "coveralls": "^3.1.0",
     "eslint": "^7.17.0",
     "eslint-config-riot": "^3.0.0",
+    "esm": "^3.2.25",
     "mocha": "^8.2.1",
     "nyc": "^15.1.0"
   },
@@ -48,7 +49,6 @@
     "chalk": "^4.1.0",
     "chokidar": "^3.5.0",
     "cumpa": "^1.0.1",
-    "esm": "^3.2.25",
     "glob": "^7.1.6",
     "optionator": "^0.9.1",
     "rollup": "^2.36.1",
