@@ -5,11 +5,12 @@ import { rollup } from 'rollup'
 /**
  * Compile riot tags via rollup
  * @param   {Object} options - user options
- * @returns {Array<RolloutOuptput>} rollout output collection
+ * @returns {Promise<RollupOutput|RollupBuild>} rollup output collection or rollup build
  */
 export default async function compile(options) {
   const bundle = await rollup({
     input: options.input,
+    watch: options.watch,
     plugins: [
       riot(options.riot)
     ]
@@ -17,5 +18,5 @@ export default async function compile(options) {
 
   info(`${options.input} -> ${options.output.file}`)
 
-  return await bundle.write(options.output)
+  return options.watch ? bundle : bundle.write(options.output)
 }

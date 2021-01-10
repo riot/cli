@@ -8,7 +8,6 @@ import optionatorFactory from 'optionator'
 import options from './options'
 import pkg from '../package.json'
 import { statSync } from 'fs'
-import watch from './watch'
 
 const optionator = optionatorFactory(options)
 const isJsFilePath = path => path.slice(-3) === '.js'
@@ -87,11 +86,7 @@ export function loadConfig(options) {
 export async function generateOutput(options, input) {
   const stat = statSync(input)
   const compileFile = filePath => {
-    const opts = mapOptions(filePath, input, options)
-
-    if (options.watch) return watch(opts)
-
-    return compile(opts)
+    return compile(mapOptions(filePath, input, options))
   }
 
   if (stat.isDirectory()) {
