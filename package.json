@@ -15,7 +15,7 @@
     "prepublishOnly": "npm run build",
     "pretest": "npm run build",
     "build": "rollup -c",
-    "test": "eslint src && IGNORE_EXIT_ERRORS=1; nyc --require esm mocha --exit test/index.js"
+    "test": "export RIOT_CLI_IGNORE_EXIT_ERRORS=1; eslint src && nyc --require esm mocha --exit test/index.js"
   },
   "repository": {
     "type": "git",

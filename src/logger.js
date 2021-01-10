@@ -8,10 +8,10 @@ export const info = compose(console.info, chalk.cyan)
 export const panic = error => {
   logError('A critical error occurred')
 
-  if (process.env.BUILD === 'production') {
+  if (process.env.RIOT_CLI_IGNORE_EXIT_ERRORS) {
+    throw error
+  } else {
     trace(error)
     process.exit(1)
-  } else {
-    throw error
   }
 }
