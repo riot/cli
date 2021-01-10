@@ -1,5 +1,5 @@
 import { basename, dirname, extname, join, relative, resolve } from 'path'
-import { log, logError } from './logger'
+import { log, logError, panic } from './logger'
 import compile from './compile'
 import compose from 'cumpa'
 import glob from 'glob'
@@ -74,7 +74,7 @@ export function loadConfig(options) {
     }
   } catch (error) {
     logError('It was not possible to load your config file, are you sure the path is correct?')
-    throw new Error(error)
+    panic(error)
   }
 }
 
@@ -128,5 +128,5 @@ export default async function run(args) {
     main,
     loadConfig,
     optionator.parseArgv
-  )(args)
+  )(args).catch(panic)
 }
