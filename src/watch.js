@@ -10,8 +10,11 @@ import { watch as rollupWatch } from 'rollup'
 export default async function watch(options) {
   info('Watching...', options.input)
 
+  const { input , output } = options
+
   return rollupWatch({
-    ...options,
+    input,
+    output,
     plugins: [
       riot(options.riot)
     ],
