@@ -1,6 +1,6 @@
 {
   "name": "@riotjs/cli",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Riot command line utility",
   "main": "index.js",
   "engines": {
