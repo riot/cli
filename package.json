@@ -45,7 +45,7 @@
   "homepage": "https://github.com/riot/cli#readme",
   "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (http://gianlucaguarini.com/)",
   "dependencies": {
-    "@riotjs/compiler": "^5.4.1",
+    "@riotjs/compiler": "^5.4.2",
     "chalk": "^4.1.1",
     "chokidar": "^3.5.1",
     "cumpa": "^1.0.1",
