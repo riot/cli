@@ -28,8 +28,12 @@ describe('riot cli', () => {
     expect(() => watcher.close()).to.not.throw()
   })
 
-  it('can compile to a js file', async() => {
+  it('can compile into a js file', async() => {
     expect(await cli(['test/fixtures/my-component.riot', '-o', 'test/generated/foo.js'])).to.be.ok
+  })
+
+  it('can compile typescript', async() => {
+    expect(await cli(['test/fixtures/typescript-component.riot', '-o', 'test/generated/typescript-component.js'])).to.be.ok
   })
 
   it('can compile from a folder', async() => {
