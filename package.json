@@ -10,7 +10,7 @@
     "riot": "cli.js"
   },
   "scripts": {
-    "cov": "nyc report --reporter=text-lcov | coveralls",
+    "cov": "nyc report --reporter=lcov",
     "cov-html": "nyc report --reporter=html",
     "prepublishOnly": "npm run build",
     "pretest": "npm run build",
@@ -32,8 +32,7 @@
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
     "chai": "^4.3.4",
-    "coveralls": "^3.1.0",
-    "eslint": "^7.28.0",
+    "eslint": "^7.30.0",
     "eslint-config-riot": "^3.0.0",
     "mocha": "^8.4.0",
     "nyc": "^15.1.0"
@@ -45,16 +44,16 @@
   "homepage": "https://github.com/riot/cli#readme",
   "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (http://gianlucaguarini.com/)",
   "dependencies": {
-    "@babel/preset-typescript": "^7.13.0",
-    "@riotjs/compiler": "^5.4.2",
+    "@babel/preset-typescript": "^7.14.5",
+    "@riotjs/compiler": "^6.0.0",
     "@rollup/plugin-babel": "^5.3.0",
     "chalk": "^4.1.1",
-    "chokidar": "^3.5.1",
+    "chokidar": "^3.5.2",
     "cumpa": "^1.0.1",
     "esm": "^3.2.25",
     "glob": "^7.1.7",
     "optionator": "^0.9.1",
-    "rollup": "^2.50.6",
-    "rollup-plugin-riot": "^5.0.0"
+    "rollup": "^2.53.1",
+    "rollup-plugin-riot": "^6.0.0"
   }
 }
