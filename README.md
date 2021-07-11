@@ -2,7 +2,7 @@
 
 Command line tool to precompile riot tags
 
-[![Build Status][cli-image]][cli-url]
+[![Build Status][ci-image]][ci-url]
 [![Code Quality][codeclimate-image]][codeclimate-url]
 [![NPM version][npm-version-image]][npm-url]
 [![NPM downloads][npm-downloads-image]][npm-url]
