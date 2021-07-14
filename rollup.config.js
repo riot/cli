@@ -4,7 +4,7 @@ import {nodeResolve} from '@rollup/plugin-node-resolve'
 
 export default {
   input: 'index.js',
-  external: ['rollup', 'glob'],
+  external: ['rollup'],
   output: {
     banner: '#!/usr/bin/env node',
     file: 'cli.js',
