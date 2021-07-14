@@ -14,7 +14,7 @@ export default async function compile(options) {
     plugins: [
       riot(options.riot),
       babel({
-        presets: [['@babel/preset-typescript', {
+        presets: [[require.resolve('@babel/preset-typescript'), {
           allExtensions: true
         }]],
         babelHelpers: 'bundled',
