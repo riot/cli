@@ -1,6 +1,5 @@
-import {babel} from '@rollup/plugin-babel'
+import { getRollupPlugins } from './util'
 import {info} from './logger'
-import riot from 'rollup-plugin-riot'
 import {watch as rollupWatch} from 'rollup'
 
 /**
@@ -16,16 +15,7 @@ export default async function watch(options) {
   return rollupWatch({
     input,
     output,
-    plugins: [
-      riot(options.riot),
-      babel({
-        presets: [[require.resolve('@babel/preset-typescript'), {
-          allExtensions: true
-        }]],
-        babelHelpers: 'bundled',
-        extensions: ['.js', '.ts', '.riot', '.html']
-      })
-    ],
+    plugins: getRollupPlugins(options),
     watch: {}
   })
 }

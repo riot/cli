@@ -1,6 +1,5 @@
-import {babel} from '@rollup/plugin-babel'
+import { getRollupPlugins } from './util'
 import {info} from './logger'
-import riot from 'rollup-plugin-riot'
 import {rollup} from 'rollup'
 
 /**
@@ -11,16 +10,7 @@ import {rollup} from 'rollup'
 export default async function compile(options) {
   const bundle = await rollup({
     input: options.input,
-    plugins: [
-      riot(options.riot),
-      babel({
-        presets: [[require.resolve('@babel/preset-typescript'), {
-          allExtensions: true
-        }]],
-        babelHelpers: 'bundled',
-        extensions: ['.js', '.ts', '.riot', '.html']
-      })
-    ]
+    plugins: getRollupPlugins(options)
   })
 
   info(`${options.input} -> ${options.output.file}`)
