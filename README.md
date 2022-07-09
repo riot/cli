@@ -1,5 +1,7 @@
 # Riot cli
 
+[![Riot.js cli logo](https://raw.githubusercontent.com/riot/branding/main/cli/cli-horizontal.svg)](https://github.com/riot/cli/)
+
 Command line tool to precompile riot tags
 
 [![Build Status][ci-image]][ci-url]
