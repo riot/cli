@@ -1,9 +1,11 @@
 # @riotjs/cli
 
 # 4.0.3
+
 - Update riot compiler and dev dependencies
 
 # 4.0.2
+
 - Fix riot files extension detection
 
 # 4.0.1

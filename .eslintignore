@@ -1,0 +1,4 @@
+/cli.js
+/cli.cjs
+/test/fixtures/*
+/test/generated/*

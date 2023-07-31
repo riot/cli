@@ -1,4 +1,4 @@
-import { log } from './logger'
+import { log } from './logger.js'
 
 /**
  * Generate the cli help

@@ -5,7 +5,7 @@ export default {
   output: {
     banner: '#!/usr/bin/env node',
     file: 'cli.js',
-    format: 'cjs'
+    format: ['es', 'cjs'],
   },
-  plugins: [json()]
+  plugins: [json()],
 }

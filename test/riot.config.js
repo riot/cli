@@ -1,4 +1,4 @@
 export default {
   extension: 'html',
-  output: 'test/generated'
+  output: 'test/generated',
 }

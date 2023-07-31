@@ -9,12 +9,17 @@ export function getRollupPlugins(options) {
     nodeResolve(options.resolve),
     commonjs(options.commonjs),
     babel({
-      presets: [[require.resolve('@babel/preset-typescript'), {
-        allExtensions: true
-      }]],
+      presets: [
+        [
+          '@babel/preset-typescript',
+          {
+            allExtensions: true,
+          },
+        ],
+      ],
       babelHelpers: 'bundled',
       extensions: ['.js', '.ts', '.riot', '.html'],
-      ...options.babel
-    })
+      ...options.babel,
+    }),
   ]
 }

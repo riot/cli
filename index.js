@@ -1,12 +1,10 @@
-// allow modules import syntax
-require = require('esm')(module, { // eslint-disable-line
-  cache: false
-})
+import process from 'node:process'
+import run, * as cli from './src/index.js'
 
-import run, * as cli from './src/index'
+export default cli
 
-// Run from CLI or as Node module
-if (module.parent) {
-  module.exports = cli
-  /* istanbul ignore next */
-} else run(process.argv)
+// Auto-Run the CLI if this file is not imported
+if (process.mainModule) {
+  /* c8 ignore next */
+  run(process.argv)
+}

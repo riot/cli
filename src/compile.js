@@ -1,6 +1,6 @@
-import { getRollupPlugins } from './util'
-import {info} from './logger'
-import {rollup} from 'rollup'
+import { getRollupPlugins } from './util.js'
+import { info } from './logger.js'
+import { rollup } from 'rollup'
 
 /**
  * Compile riot tags via rollup
@@ -10,7 +10,7 @@ import {rollup} from 'rollup'
 export default async function compile(options) {
   const bundle = await rollup({
     input: options.input,
-    plugins: getRollupPlugins(options)
+    plugins: getRollupPlugins(options),
   })
 
   info(`${options.input} -> ${options.output.file}`)

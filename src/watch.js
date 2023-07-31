@@ -1,6 +1,6 @@
-import { getRollupPlugins } from './util'
-import {info} from './logger'
-import {watch as rollupWatch} from 'rollup'
+import { getRollupPlugins } from './util.js'
+import { info } from './logger.js'
+import { watch as rollupWatch } from 'rollup'
 
 /**
  * Watch riot tags via rollup
@@ -10,12 +10,12 @@ import {watch as rollupWatch} from 'rollup'
 export default async function watch(options) {
   info('Watching...', options.input)
 
-  const {input, output} = options
+  const { input, output } = options
 
   return rollupWatch({
     input,
     output,
     plugins: getRollupPlugins(options),
-    watch: {}
+    watch: {},
   })
 }

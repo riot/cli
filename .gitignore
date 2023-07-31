@@ -57,6 +57,7 @@ generated
 # these files are generated anyway
 test/fixtures/*.js
 cli.js
+cli.cjs
 
 !.gitmodules
 !.travis.yml
