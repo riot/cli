@@ -30,7 +30,7 @@ If you are using Riot.js < 4.0.0 please check the [legacy branch](https://github
 [npm-version-image]: http://img.shields.io/npm/v/@riotjs/cli.svg?style=flat-square
 [npm-downloads-image]: http://img.shields.io/npm/dm/@riotjs/cli.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/@riotjs/cli
-[coverage-image]: https://img.shields.io/coveralls/riot/cli/master.svg?style=flat-square
-[coverage-url]: https://coveralls.io/r/riot/cli/?branch=master
+[coverage-image]: https://img.shields.io/coveralls/riot/cli/main.svg?style=flat-square
+[coverage-url]: https://coveralls.io/r/riot/cli/?branch=main
 [codeclimate-image]: https://api.codeclimate.com/v1/badges/1409ace7dbefdb5da35a/maintainability
 [codeclimate-url]: https://codeclimate.com/github/riot/cli
