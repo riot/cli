@@ -10,6 +10,8 @@ export const panic = (error) => {
 
   if (process.env.RIOT_CLI_IGNORE_EXIT_ERRORS) {
     throw error
+
+    /* c8 ignore next 3 */
   } else {
     trace(error)
     process.exit(1)
