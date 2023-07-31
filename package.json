@@ -15,9 +15,9 @@
     "riot": "cli.js"
   },
   "scripts": {
-    "cov": "nyc report --reporter=lcov",
+    "cov": "c8 report --reporter=lcov",
     "lint": "eslint ./ && npx prettier --check ./",
-    "cov-html": "nyc report --reporter=html",
+    "cov-html": "c8 report --reporter=html",
     "prepublishOnly": "npm run test && npm run build",
     "pretest": "npm run lint",
     "build": "rollup -c",
