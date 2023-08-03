@@ -1,7 +1,10 @@
 import { expect } from 'chai'
-import pkg from '../src/pkg.js'
-import run from '../src/index.js'
+import { createRequire } from 'module'
+import run from '../cli.js'
 import { statSync } from 'node:fs'
+
+const require = createRequire(import.meta.url)
+const pkg = require('../package.json')
 
 const cli = (options) => run(['node', 'riot', ...options])
 

@@ -1,4 +1,4 @@
-import pkg from './pkg.js'
+import pkg from '../package.json'
 
 export default {
   prepend: '\nBuilds .riot files to .js\n\nOptions:',

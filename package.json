@@ -12,14 +12,14 @@
     "node": ">=18.0.0"
   },
   "bin": {
-    "riot": "cli.js"
+    "riot": "index.js"
   },
   "scripts": {
     "cov": "c8 report --reporter=lcov",
     "lint": "eslint ./ && npx prettier --check ./",
     "cov-html": "c8 report --reporter=html",
     "prepublishOnly": "npm run test && npm run build",
-    "pretest": "npm run lint",
+    "pretest": "npm run lint && npm run build",
     "build": "rollup -c",
     "test": "export RIOT_CLI_IGNORE_EXIT_ERRORS=1; c8 mocha --exit test/index.js"
   },
@@ -33,6 +33,9 @@
   ],
   "files": [
     "src",
+    "index.js",
+    "cli.js",
+    "cli.cjs",
     "README.md"
   ],
   "devDependencies": {
@@ -42,7 +45,7 @@
     "eslint": "^8.46.0",
     "eslint-config-riot": "^4.1.0",
     "mocha": "^10.2.0",
-    "prettier": "^3.0.0"
+    "prettier": "^3.0.1"
   },
   "license": "MIT",
   "bugs": {
@@ -52,7 +55,7 @@
   "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (http://gianlucaguarini.com/)",
   "dependencies": {
     "@babel/preset-typescript": "^7.22.5",
-    "@riotjs/compiler": "^9.0.2",
+    "@riotjs/compiler": "^9.0.3",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-node-resolve": "^15.1.0",
@@ -62,7 +65,7 @@
     "cumpa": "^2.0.1",
     "glob": "^10.3.3",
     "optionator": "^0.9.3",
-    "rollup": "^3.27.0",
-    "rollup-plugin-riot": "^7.0.0"
+    "rollup": "^3.27.1",
+    "rollup-plugin-riot": "^9.0.0"
   }
 }

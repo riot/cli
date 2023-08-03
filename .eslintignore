@@ -2,3 +2,5 @@
 /cli.cjs
 /test/fixtures/*
 /test/generated/*
+# eslint doesn't like json imports
+/test/index.js

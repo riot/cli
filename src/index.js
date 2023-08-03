@@ -7,7 +7,7 @@ import help from './help.js'
 import optionatorFactory from 'optionator'
 import options from './options.js'
 import { statSync } from 'node:fs'
-import pkg from './pkg.js'
+import pkg from '../package.json'
 import watch from './watch.js'
 
 const optionator = optionatorFactory(options)
