@@ -119,11 +119,11 @@ export async function generateOutput(options, input) {
 
 /**
  * Parse the user options and dispatch the cli tasks
- * @param   {Promise<Object>} optionsPromise user options promise
+ * @param   {Object} cliOptions user options passed via CLI
  * @returns {*} task output
  */
-export async function main(optionsPromise) {
-  const options = await optionsPromise
+export async function main(cliOptions) {
+  const options = await loadConfig(cliOptions)
 
   switch (true) {
     case options.version:
@@ -142,5 +142,5 @@ export async function main(optionsPromise) {
 export { registerPreprocessor, registerPostprocessor } from '@riotjs/compiler'
 
 export default async function run(args) {
-  return compose(main, loadConfig, optionator.parseArgv)(args).catch(panic)
+  return compose(main, optionator.parseArgv)(args).catch(panic)
 }
