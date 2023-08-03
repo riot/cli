@@ -1,6 +1,6 @@
 {
   "name": "@riotjs/cli",
-  "version": "9.0.3",
+  "version": "9.0.4",
   "description": "Riot command line utility",
   "main": "cli.js",
   "type": "module",
