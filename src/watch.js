@@ -4,8 +4,9 @@ import { watch as rollupWatch } from 'rollup'
 
 /**
  * Watch riot tags via rollup
- * @param {Object} options - user options
- * @return {Array<chokidar>} chokidar instances
+ * @typedef { import("chokidar") } chokidar
+ * @param {object} options - user options
+ * @returns {Array<chokidar>} chokidar instances
  */
 export default async function watch(options) {
   info('Watching...', options.input)

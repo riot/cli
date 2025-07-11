@@ -1,7 +1,7 @@
 import chalk from 'chalk'
 import compose from 'cumpa'
 
-export const log = console.log // eslint-disable-line
+export const log = console.log
 export const logError = compose(console.error, chalk.red)
 export const trace = console.trace
 export const info = compose(console.info, chalk.cyan)

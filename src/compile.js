@@ -4,7 +4,8 @@ import { rollup } from 'rollup'
 
 /**
  * Compile riot tags via rollup
- * @param   {Object} options - user options
+ * @typedef { import("rollup").RolloutOuptput } RolloutOuptput
+ * @param   {object} options - user options
  * @returns {Array<RolloutOuptput>} rollout output collection
  */
 export default async function compile(options) {

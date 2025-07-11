@@ -12,22 +12,21 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 19.x, 20.x]
+        node-version: [22.x, 24.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Local Unit Test ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm i
       - run: npm test
       - name: Generate Coverage
-        if: ${{ success() && github.event_name != 'pull_request' && matrix.node-version == '19.x' }}
+        if: ${{ success() && github.event_name != 'pull_request' && matrix.node-version == '22.x' }}
         run: npm run cov
-      - name: Coveralls
-        if: ${{ success() && github.event_name != 'pull_request' && matrix.node-version == '19.x' }}
-        uses: coverallsapp/github-action@master
+      - name: Upload Coverage
+        uses: qltysh/qlty-action/coverage@v1
         with:
-          path-to-lcov: ./coverage/lcov.info
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: target/lcov.info

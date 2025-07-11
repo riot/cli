@@ -15,10 +15,11 @@ const isJsFilePath = (path) => path.slice(-3) === '.js'
 
 /**
  * Map the user options to valid rollup options
+ * @typedef { import("rollup").RolloutOuptput } RolloutOuptput
  * @param   {string} input - source file path
  * @param   {string} userInputPath - path provided by the user
- * @param   {Object} options - user options
- * @returns {Object} RollupOptions object
+ * @param   {object} options - user options
+ * @returns {object} RollupOptions object
  */
 export function mapOptions(input, userInputPath, options) {
   const componentName = basename(input, extname(input))
@@ -41,7 +42,7 @@ export function mapOptions(input, userInputPath, options) {
 
 /**
  * Generate the output where the javascript files will be created
- * @param   {Object} options - user options
+ * @param   {object} options - user options
  * @param   {string} input - current source path
  * @param   {string} userInputPath - path provided by the user
  * @param   {string} componentName - component name inferred from the file name
@@ -67,8 +68,8 @@ export function generateOutputPath(
 
 /**
  * Load the riot.config.js file
- * @param   {Object} options - user options
- * @returns {Object} user options merged with the riot.config.js export
+ * @param   {object} options - user options
+ * @returns {object} user options merged with the riot.config.js export
  */
 export async function loadConfig(options) {
   if (!options.config) return options
@@ -92,9 +93,10 @@ export async function loadConfig(options) {
 
 /**
  * Generate the output javascript files
- * @param   {Object} options - user options
+ * @typedef { import("rollup").RolloutOuptput } RolloutOuptput
+ * @param   {object} options - user options
  * @param   {string} input - input path
- * @returns {Array<RollytOutput>} generated files
+ * @returns {Array<RolloutOuptput>} generated files
  */
 export async function generateOutput(options, input) {
   const stat = statSync(input)
@@ -119,7 +121,7 @@ export async function generateOutput(options, input) {
 
 /**
  * Parse the user options and dispatch the cli tasks
- * @param   {Object} cliOptions user options passed via CLI
+ * @param   {object} cliOptions user options passed via CLI
  * @returns {*} task output
  */
 export async function main(cliOptions) {
