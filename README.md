@@ -5,7 +5,7 @@
 Command line tool to precompile riot tags
 
 [![Build Status][ci-image]][ci-url]
-[![Code Quality][codeclimate-image]][codeclimate-url]
+[![Code Quality][qlty-image]][qlty-url]
 [![NPM version][npm-version-image]][npm-url]
 [![NPM downloads][npm-downloads-image]][npm-url]
 [![MIT License][license-image]][license-url]
@@ -30,7 +30,7 @@ If you are using Riot.js < 4.0.0 please check the [legacy branch](https://github
 [npm-version-image]: http://img.shields.io/npm/v/@riotjs/cli.svg?style=flat-square
 [npm-downloads-image]: http://img.shields.io/npm/dm/@riotjs/cli.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/@riotjs/cli
-[coverage-image]: https://img.shields.io/coveralls/riot/cli/main.svg?style=flat-square
-[coverage-url]: https://coveralls.io/r/riot/cli/?branch=main
-[codeclimate-image]: https://api.codeclimate.com/v1/badges/1409ace7dbefdb5da35a/maintainability
-[codeclimate-url]: https://codeclimate.com/github/riot/cli
+[coverage-image]: https://qlty.sh/gh/riot/projects/cli/coverage.svg
+[coverage-url]: https://qlty.sh/gh/riot/projects/cli
+[qlty-image]: https://qlty.sh/gh/riot/projects/cli/maintainability.svg
+[qlty-url]: https://qlty.sh/gh/riot/projects/cli
